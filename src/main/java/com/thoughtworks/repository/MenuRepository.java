@@ -13,11 +13,8 @@ public class MenuRepository {
 
     DatabaseHelper db = DatabaseHelper.getInstance();
 
-    /**
-     * @return
-     */
     public List<Menu> getDishes() {
-        Node menuNode = db.getMenu();
+        Node menuNode = db.getMenuNode();
         Traverser traverse = menuNode.traverse(Traverser.Order.BREADTH_FIRST,
                 StopEvaluator.END_OF_GRAPH,
                 ReturnableEvaluator.ALL_BUT_START_NODE,

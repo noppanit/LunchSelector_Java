@@ -39,6 +39,7 @@ public class DatabaseHelper {
 
             Node menu = createNode(nodeName, "Menu");
             menuIndex.add(menu, nodeName, "Menu");
+            customersIndex.add(customer, nodeName, "Customers");
 
             relateToRoot(rootNode, customer);
             relateToRoot(rootNode, question);
@@ -53,7 +54,7 @@ public class DatabaseHelper {
             menu.createRelationshipTo(nutSalad, MyRelationship.DISH);
 
             Node mary = createNode(nodeName, "Mary");
-            customersIndex.add(mary, nodeName, "Mary");
+
 
             Node allergies = createNode(nodeName, "What allergies do you have?");
 
@@ -100,14 +101,13 @@ public class DatabaseHelper {
         return graphDb.getReferenceNode();
     }
 
-    public Node getMary() {
-        return customersIndex.get("name", "Mary").getSingle();
+    public Node getCustomerNode() {
+        return customersIndex.get("name", "Customers").getSingle();
     }
 
-    public Node getMenu() {
+    public Node getMenuNode() {
         return menuIndex.get("name", "Menu").getSingle();
     }
-
 
     private static boolean deleteDir(File dir) {
         if (dir.isDirectory()) {

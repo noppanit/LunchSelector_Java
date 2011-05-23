@@ -5,6 +5,11 @@
 		<title>Home</title>
 	</head>
 	<body>
-		<h1>Hello world!</h1>
+		<h1>Hunger Strikes!</h1>
+        <h2>
+            <a href="menu">
+                List of menu
+            </a>
+        </h2>
 	</body>
 </html>
