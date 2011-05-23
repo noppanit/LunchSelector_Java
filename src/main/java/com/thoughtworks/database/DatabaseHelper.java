@@ -12,11 +12,11 @@ import java.io.File;
 
 public class DatabaseHelper {
 
-    private static DatabaseHelper db = null;
+    private static DatabaseHelper db = getInstance();
     private GraphDatabaseService graphDb = new EmbeddedGraphDatabase(Constant.PROJECT_PATH + "/src/main/resource/db");
 
-    private Index<Node> customersIndex = graphDb.index().forNodes("customers");
-    private Index<Node> menuIndex = graphDb.index().forNodes("menu");
+    private Index<Node> customersIndex = null;
+    private Index<Node> menuIndex = null;
 
     private String nodeName = "name";
 
@@ -33,6 +33,9 @@ public class DatabaseHelper {
     private DatabaseHelper() {
         Transaction tx = graphDb.beginTx();
         try {
+            customersIndex = graphDb.index().forNodes("customers");
+            menuIndex = graphDb.index().forNodes("menu");
+
             Node rootNode = getRoot();
             Node customer = createNode(nodeName, "Customers");
             Node question = createNode(nodeName, "Questions");

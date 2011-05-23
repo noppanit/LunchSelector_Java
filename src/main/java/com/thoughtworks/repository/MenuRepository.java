@@ -11,7 +11,7 @@ import java.util.List;
 
 public class MenuRepository {
 
-    DatabaseHelper db = DatabaseHelper.getInstance();
+    private DatabaseHelper db = DatabaseHelper.getInstance();
 
     public List<Menu> getDishes() {
         Node menuNode = db.getMenuNode();

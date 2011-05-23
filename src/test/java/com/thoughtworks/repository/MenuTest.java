@@ -14,10 +14,8 @@ public class MenuTest extends BaseTest {
     @Test
     public void shouldReturnAllDishes() {
         MenuRepository menu = new MenuRepository();
-
         List<Menu> nodes = menu.getDishes();
         Collection<String> nodeNames = getNodeNames(nodes);
-
         assertThat(nodeNames, containsOnlySpecies("tuna salad", "pasta salad", "nut salad"));
     }
 

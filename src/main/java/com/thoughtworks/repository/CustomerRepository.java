@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class CustomerRepository {
+
     private DatabaseHelper db = DatabaseHelper.getInstance();
 
     public List<Customer> getCustomers() {
