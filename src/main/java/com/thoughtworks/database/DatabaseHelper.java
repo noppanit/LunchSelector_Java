@@ -8,8 +8,11 @@ import org.neo4j.graphdb.Transaction;
 import org.neo4j.graphdb.index.Index;
 import org.neo4j.kernel.EmbeddedGraphDatabase;
 
+import java.io.File;
+
 public class DatabaseHelper {
 
+    private static DatabaseHelper db = null;
     private GraphDatabaseService graphDb = new EmbeddedGraphDatabase(Constant.PROJECT_PATH + "/src/main/resource/db");
 
     private Index<Node> customersIndex = graphDb.index().forNodes("customers");
@@ -17,8 +20,17 @@ public class DatabaseHelper {
 
     private String nodeName = "name";
 
-    public void initialise() {
+    public static DatabaseHelper getInstance() {
+        if (db == null) {
+            File dbDir = new File(Constant.PROJECT_PATH + "/src/main/resource/db");
+            deleteDir(dbDir);
+            dbDir.mkdir();
+            return new DatabaseHelper();
+        }
+        return db;
+    }
 
+    private DatabaseHelper() {
         Transaction tx = graphDb.beginTx();
         try {
             Node rootNode = getRoot();
@@ -94,5 +106,21 @@ public class DatabaseHelper {
 
     public Node getMenu() {
         return menuIndex.get("name", "Menu").getSingle();
+    }
+
+
+    private static boolean deleteDir(File dir) {
+        if (dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+
+        // The directory is now empty so delete it
+        return dir.delete();
     }
 }
