@@ -50,7 +50,7 @@ public class ContainsOnlySpecificNameOfNodes extends TypeSafeMatcher<Iterable<St
     }
 
     @Factory
-    public static <T> Matcher<Iterable<String>> containsOnlySpecies(String... speciesNames) {
+    public static <T> Matcher<Iterable<String>> containsOnlyNodeNames(String... speciesNames) {
         return new ContainsOnlySpecificNameOfNodes(speciesNames);
     }
 }

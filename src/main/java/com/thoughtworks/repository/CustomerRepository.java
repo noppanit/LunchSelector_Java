@@ -36,9 +36,37 @@ public class CustomerRepository {
         return allCustomers;
     }
 
-    public List<Menu> getPersonalisedMenu() {
+    public List<Menu> getPersonalisedMenu(Node customerNode) {
 
-        return Collections.EMPTY_LIST;
+        List<Menu> cannotEatDishes = new ArrayList<Menu>();
+
+        Traverser traverser = customerNode.traverse(Traverser.Order.BREADTH_FIRST,
+                StopEvaluator.END_OF_GRAPH,
+                new ReturnableEvaluator() {
+                    public boolean isReturnableNode(TraversalPosition currentPosition) {
+                        Relationship rel = currentPosition.lastRelationshipTraversed();
+                        if (rel != null && rel.isType(MyRelationship.EXCLUDES)) {
+                            return true;
+                        }
+                        return false;
+                    }
+                },
+                MyRelationship.ANSWERED, Direction.OUTGOING,
+                MyRelationship.EXCLUDES, Direction.OUTGOING);
+
+        for (Node dish : traverser) {
+            Menu menu = new Menu();
+            menu.setName(dish.getProperty("name").toString());
+
+            cannotEatDishes.add(menu);
+        }
+
+        List<Menu> allDishes = new MenuRepository().getDishes();
+
+
+
+
+        return cannotEatDishes;
     }
 
     public Node getCustomer(final String name) {
