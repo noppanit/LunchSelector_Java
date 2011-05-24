@@ -7,9 +7,9 @@
 <body>
 <h1>Hi! This is all the menu.</h1>
 <ol>
-    <c:forEach var="customer" items="${customers}">
+    <c:forEach var="personalisedMenu" items="${personalisedMenus}">
         <li>
-            <a href="customers/menu?username=${customer.name}">${customer.name}</a>
+            ${personalisedMenu.name}
         </li>
     </c:forEach>
 </ol>

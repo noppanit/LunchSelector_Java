@@ -17,6 +17,7 @@ public class DatabaseHelper {
 
     private Index<Node> customersIndex = null;
     private Index<Node> menuIndex = null;
+    private Index<Node> questionIndex = null;
 
     private String nodeName = "name";
 
@@ -35,6 +36,7 @@ public class DatabaseHelper {
         try {
             customersIndex = graphDb.index().forNodes("customers");
             menuIndex = graphDb.index().forNodes("menu");
+            questionIndex = graphDb.index().forNodes("questions");
 
             Node rootNode = getRoot();
             Node customer = createNode(nodeName, "Customers");
@@ -43,6 +45,7 @@ public class DatabaseHelper {
             Node menu = createNode(nodeName, "Menu");
             menuIndex.add(menu, nodeName, "Menu");
             customersIndex.add(customer, nodeName, "Customers");
+            questionIndex.add(question, nodeName, "Questions");
 
             relateToRoot(rootNode, customer);
             relateToRoot(rootNode, question);
@@ -61,7 +64,34 @@ public class DatabaseHelper {
 
             Node allergies = createNode(nodeName, "What allergies do you have?");
 
+            Node hotOrCold = createNode(nodeName, "Do you want hot or cold food?");
+
             question.createRelationshipTo(allergies, MyRelationship.QUESTION);
+            question.createRelationshipTo(hotOrCold, MyRelationship.QUESTION);
+
+            Node hotFood = createNode(nodeName, "hot");
+            Node coldFood = createNode(nodeName, "cold");
+
+            hotOrCold.createRelationshipTo(hotFood, MyRelationship.ANSWERS);
+            hotOrCold.createRelationshipTo(coldFood, MyRelationship.ANSWERS);
+
+            Node potsu = createNode(nodeName, "grilled chicken potsu");
+            Node rice = createNode(nodeName, "fried rice");
+
+            hotFood.createRelationshipTo(potsu, MyRelationship.ANSWERS);
+            hotFood.createRelationshipTo(rice, MyRelationship.ANSWERS);
+
+            menu.createRelationshipTo(potsu, MyRelationship.DISH);
+            menu.createRelationshipTo(rice, MyRelationship.DISH);
+
+            Node sandwiches = createNode(nodeName, "sandwiches");
+
+            coldFood.createRelationshipTo(sandwiches, MyRelationship.ANSWERS);
+            coldFood.createRelationshipTo(tunaSalad, MyRelationship.ANSWERS);
+            coldFood.createRelationshipTo(nutSalad, MyRelationship.ANSWERS);
+            coldFood.createRelationshipTo(pastaSalad, MyRelationship.ANSWERS);
+
+            menu.createRelationshipTo(sandwiches, MyRelationship.DISH);
 
             Node fish = createNode(nodeName, "fish");
             Node nut = createNode(nodeName, "nut");
@@ -110,6 +140,10 @@ public class DatabaseHelper {
 
     public Node getMenuNode() {
         return menuIndex.get("name", "Menu").getSingle();
+    }
+
+    public Node getQuestionsNode() {
+        return questionIndex.get("name", "Questions").getSingle();
     }
 
     private static boolean deleteDir(File dir) {

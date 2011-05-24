@@ -6,11 +6,9 @@ import com.thoughtworks.model.Menu;
 import com.thoughtworks.relationship.MyRelationship;
 import com.thoughtworks.util.ListHelper;
 import org.neo4j.graphdb.*;
-import org.neo4j.kernel.Traversal;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class CustomerRepository {

@@ -1,6 +1,7 @@
 package com.thoughtworks.repository;
 
 import com.thoughtworks.model.Menu;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Collection;
@@ -11,6 +12,7 @@ import static org.junit.Assert.assertThat;
 
 public class MenuTest extends BaseTest {
 
+    @Ignore
     @Test
     public void shouldReturnAllDishes() {
         MenuRepository menu = new MenuRepository();
