@@ -4,6 +4,7 @@ import com.thoughtworks.database.DatabaseHelper;
 import com.thoughtworks.model.Customer;
 import com.thoughtworks.model.Menu;
 import com.thoughtworks.relationship.MyRelationship;
+import com.thoughtworks.util.ListHelper;
 import org.neo4j.graphdb.*;
 import org.neo4j.kernel.Traversal;
 
@@ -63,10 +64,7 @@ public class CustomerRepository {
 
         List<Menu> allDishes = new MenuRepository().getDishes();
 
-
-
-
-        return cannotEatDishes;
+        return (List<Menu>) new ListHelper().substracts(allDishes, cannotEatDishes);
     }
 
     public Node getCustomer(final String name) {

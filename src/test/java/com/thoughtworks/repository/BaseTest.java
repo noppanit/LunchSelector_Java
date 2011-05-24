@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class BaseTest {
+public abstract class BaseTest {
 
     protected Collection<String> getNodeNames(List<? extends NodeObject> dishes) {
         Collection<String> nodeNames = new ArrayList<String>();
