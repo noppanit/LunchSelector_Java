@@ -84,13 +84,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MenuTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/MenuTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="143" selection-start="708" selection-end="708" vertical-scroll-proportion="0.4892704">
+            <state line="19" column="143" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customerMenu.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="43" selection-start="189" selection-end="189" vertical-scroll-proportion="0.18340611">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -137,7 +146,6 @@
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/BaseTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customers.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/relationship/MyRelationship.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Question.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/QuestionTest.java" />
@@ -147,6 +155,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/MenuTest.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp" />
       </list>
     </option>
   </component>
@@ -308,6 +317,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LunchSelector" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LunchSelector" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -840,13 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="45" selection-start="334" selection-end="334" vertical-scroll-proportion="0.3256785">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="45" selection-start="543" selection-end="543" vertical-scroll-proportion="0.348643">
@@ -942,10 +974,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/MenuTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="143" selection-start="708" selection-end="708" vertical-scroll-proportion="0.4892704">
+        <state line="19" column="143" selection-start="708" selection-end="708" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="43" selection-start="189" selection-end="189" vertical-scroll-proportion="0.18340611">
+          <folding />
         </state>
       </provider>
     </entry>
