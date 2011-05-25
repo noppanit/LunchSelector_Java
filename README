@@ -1,0 +1,6 @@
+1. Install Maven
+2. in the project directory
+   mvn clean install
+3. mvn test
+4. mvn jetty:run
+5. go to http://localhost:8080

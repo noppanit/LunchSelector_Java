@@ -84,13 +84,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerRepository.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CustomerRepository.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="43" selection-start="2852" selection-end="2852" vertical-scroll-proportion="0.7826087">
+            <state line="69" column="43" selection-start="2852" selection-end="2852" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="30" selection-start="125" selection-end="125" vertical-scroll-proportion="0.09771987">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -147,7 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/matcher/ContainsOnlySpecificNameOfNodes.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/util/ListHelper.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/util/ListHelperTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/BaseTest.java" />
@@ -163,6 +171,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/MenuTest.java" />
+        <option value="$PROJECT_DIR$/README" />
       </list>
     </option>
   </component>
@@ -845,15 +854,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="45" selection-start="543" selection-end="543" vertical-scroll-proportion="0.348643">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customers.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="30" selection-start="281" selection-end="281" vertical-scroll-proportion="0.28820962">
@@ -966,10 +966,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="43" selection-start="2852" selection-end="2852" vertical-scroll-proportion="0.7826087">
+        <state line="69" column="43" selection-start="2852" selection-end="2852" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="30" selection-start="125" selection-end="125" vertical-scroll-proportion="0.09771987">
+          <folding />
         </state>
       </provider>
     </entry>
