@@ -38,69 +38,38 @@ public class CustomerRepository {
 
     public List<Menu> getPersonalisedMenu(Node customerNode) {
 
-        List<Menu> listOfHotOrColdDishes = getDishesOfFirstQuestion(customerNode);
-        List<Menu> listOfExcludedDishes = getDishesOfSecondQuestion(customerNode);
+        MenuRepository menuRepository = new MenuRepository();
+        List<Menu> listOfHotOrColdDishes = menuRepository.getDishes();
+        List<Menu> listOfExcludedDishes = getExcludedDishes(customerNode);
 
         return (List<Menu>) new ListHelper().substracts(listOfHotOrColdDishes, listOfExcludedDishes);
     }
 
-    private List<Menu> getDishesOfSecondQuestion(Node customerNode) {
-        PatternNode customerPatternNode = new PatternNode();
-
-        PatternNode secondQuestionNode = new PatternNode();
-        PatternRelationship customerSecondQuestionRelationship = customerPatternNode.createRelationshipTo(secondQuestionNode, MyRelationship.COMPLETED);
-        customerSecondQuestionRelationship.addPropertyConstraint("SEQUENCE", CommonValueMatchers.exact("2"));
-
-        PatternNode answerOfSecondQuestionNode = new PatternNode();
-        secondQuestionNode.createRelationshipTo(answerOfSecondQuestionNode, MyRelationship.ANSWERS);
-
-        customerPatternNode.createRelationshipTo(answerOfSecondQuestionNode, MyRelationship.ANSWERED);
-
-        PatternNode cannotEatDishes = new PatternNode();
-        answerOfSecondQuestionNode.createRelationshipTo(cannotEatDishes, MyRelationship.EXCLUDES);
-
-        PatternMatcher matcher1 = PatternMatcher.getMatcher();
-        final Iterable<PatternMatch> matches1 = matcher1.match(customerPatternNode, customerNode);
+    private List<Menu> getExcludedDishes(Node customerNode) {
 
         List<Menu> excludedDishes = new ArrayList<Menu>();
+        Traverser traverser = customerNode.traverse(Traverser.Order.BREADTH_FIRST,
+                StopEvaluator.END_OF_GRAPH,
+                new ReturnableEvaluator() {
+                    @Override
+                    public boolean isReturnableNode(TraversalPosition traversalPosition) {
+                        if( traversalPosition.lastRelationshipTraversed() != null &&
+                                traversalPosition.lastRelationshipTraversed().isType(MyRelationship.EXCLUDES))
+                            return true;
+                        return false;
+                    }
+                },
+                MyRelationship.ANSWERED, Direction.OUTGOING,
+                MyRelationship.EXCLUDES, Direction.OUTGOING);
 
-        for (PatternMatch pm : matches1) {
+        Collection<Node> allNodes = traverser.getAllNodes();
+        for (Node node : allNodes) {
             Menu menu = new Menu();
-            menu.setName(pm.getNodeFor(cannotEatDishes).getProperty("name").toString());
+            menu.setName(node.getProperty("name").toString());
             excludedDishes.add(menu);
         }
 
         return excludedDishes;
-    }
-
-    private List<Menu> getDishesOfFirstQuestion(Node customerNode) {
-        PatternNode customerPatternNode = new PatternNode();
-
-        PatternNode firstQuestionNode = new PatternNode();
-        PatternRelationship customerFirstQuestionRelationship = customerPatternNode.createRelationshipTo(firstQuestionNode, MyRelationship.COMPLETED);
-        customerFirstQuestionRelationship.addPropertyConstraint("SEQUENCE", CommonValueMatchers.exact("1"));
-
-        PatternNode answerOfFirstQuestionNode = new PatternNode();
-        firstQuestionNode.createRelationshipTo(answerOfFirstQuestionNode, MyRelationship.ANSWERS);
-
-        PatternNode canEatDishes = new PatternNode();
-
-        answerOfFirstQuestionNode.createRelationshipTo(canEatDishes, MyRelationship.ANSWERS);
-
-        customerPatternNode.createRelationshipTo(answerOfFirstQuestionNode, MyRelationship.ANSWERED);
-
-        PatternMatcher matcher = PatternMatcher.getMatcher();
-        final Iterable<PatternMatch> matches = matcher.match(customerPatternNode, customerNode);
-
-        List<Menu> hotOrColdDishes = new ArrayList<Menu>();
-
-        for (PatternMatch pm : matches) {
-            Menu menu = new Menu();
-            menu.setName(pm.getNodeFor(canEatDishes).getProperty("name").toString());
-            hotOrColdDishes.add(menu);
-        }
-
-        return hotOrColdDishes;
     }
 
     public Node getCustomer(final String name) {

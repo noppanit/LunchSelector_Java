@@ -73,21 +73,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MenuRepository.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/MenuRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="55" selection-start="513" selection-end="513" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CustomerRepository.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="43" selection-start="2852" selection-end="2852" vertical-scroll-proportion="0.0">
+            <state line="74" column="0" selection-start="2717" selection-end="2717" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,19 +84,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README">
+      <file leaf-file-name="MenuRepository.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/MenuRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="30" selection-start="125" selection-end="125" vertical-scroll-proportion="0.09771987">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseTest.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/BaseTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="49" selection-start="470" selection-end="470" vertical-scroll-proportion="0.0">
+            <state line="9" column="46" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,29 +95,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Menu.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Menu.java">
+      <file leaf-file-name="DatabaseHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="13" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="39" column="72" selection-start="1349" selection-end="1349" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Customer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Customer.java">
+      <file leaf-file-name="CustomerTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="13" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NodeObject.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/NodeObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="47" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="32" column="61" selection-start="1197" selection-end="1197" vertical-scroll-proportion="0.6825688">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,13 +140,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Question.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/QuestionTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/QuestionRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/MenuTest.java" />
         <option value="$PROJECT_DIR$/README" />
+        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java" />
       </list>
     </option>
   </component>
@@ -353,6 +328,36 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LunchSelector" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LunchSelector" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -440,6 +445,66 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LunchSelector" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LunchSelector" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thoughtworks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LunchSelector" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LunchSelector" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thoughtworks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -477,7 +542,7 @@
       <recent name="com.thoughtworks.database" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in LunchSelector">
+  <component name="RunManager" selected="JUnit.CustomerTest.shouldReturnPersonalisedMenu">
     <configuration default="false" name="CustomerTest.shouldReturnPersonalisedMenu" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false">
         <pattern>
@@ -774,8 +839,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32972583" sideWeight="0.6701847" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25180376" sideWeight="0.8746702" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12532982" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25180376" sideWeight="0.7572559" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24274406" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -854,80 +919,23 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customers.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/NodeObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="30" selection-start="281" selection-end="281" vertical-scroll-proportion="0.28820962">
+        <state line="9" column="47" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Question.java">
+    <entry file="file://$PROJECT_DIR$/README">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="77" selection-end="77" vertical-scroll-proportion="0.10020877">
+        <state line="5" column="30" selection-start="125" selection-end="125" vertical-scroll-proportion="0.09771987">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/QuestionRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/BaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="23" selection-start="1049" selection-end="1049" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/QuestionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="22" selection-start="510" selection-end="510" vertical-scroll-proportion="0.52287585">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="69" selection-start="1378" selection-end="1378" vertical-scroll-proportion="0.8712446">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="54" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="42" selection-start="318" selection-end="318" vertical-scroll-proportion="0.28820962">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/MenuTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="47" selection-start="329" selection-end="329" vertical-scroll-proportion="0.2832618">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="39" selection-start="443" selection-end="443" vertical-scroll-proportion="0.3507307">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/MenuRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="55" selection-start="513" selection-end="513" vertical-scroll-proportion="0.0">
+        <state line="15" column="49" selection-start="470" selection-end="470" vertical-scroll-proportion="0.33962265">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -943,21 +951,76 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Customer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0">
+        <state line="2" column="13" selection-start="46" selection-end="46" vertical-scroll-proportion="0.04528302">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/NodeObject.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="47" selection-start="181" selection-end="181" vertical-scroll-proportion="0.0">
+        <state line="3" column="47" selection-start="106" selection-end="106" vertical-scroll-proportion="-1.7142857">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/BaseTest.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/neo4j/neo4j-kernel/1.4.M02/neo4j-kernel-1.4.M02.jar!/org/neo4j/graphdb/Node.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="49" selection-start="470" selection-end="470" vertical-scroll-proportion="0.0">
+        <state line="31" column="32" selection-start="1441" selection-end="1441" vertical-scroll-proportion="0.77330506">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/neo4j/neo4j-kernel/1.4.M02/neo4j-kernel-1.4.M02.jar!/org/neo4j/graphdb/StopEvaluator.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="36" selection-start="262" selection-end="262" vertical-scroll-proportion="0.17319588">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="47" selection-start="714" selection-end="714" vertical-scroll-proportion="0.17303823">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="13" selection-start="387" selection-end="387" vertical-scroll-proportion="0.15873016">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/MenuTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="47" selection-start="329" selection-end="329" vertical-scroll-proportion="0.34285715">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="45" selection-start="543" selection-end="543" vertical-scroll-proportion="0.12562814">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="72" selection-start="1349" selection-end="1349" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/MenuRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="46" selection-start="284" selection-end="284" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -966,17 +1029,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="43" selection-start="2852" selection-end="2852" vertical-scroll-proportion="0.0">
+        <state line="74" column="0" selection-start="2717" selection-end="2717" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="30" selection-start="125" selection-end="125" vertical-scroll-proportion="0.09771987">
-          <folding />
+        <state line="32" column="61" selection-start="1197" selection-end="1197" vertical-scroll-proportion="0.6825688">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

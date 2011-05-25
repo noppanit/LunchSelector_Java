@@ -81,18 +81,18 @@ public class DatabaseHelper {
             Node potsu = createNode(nodeName, "grilled chicken potsu");
             Node rice = createNode(nodeName, "fried rice");
 
-            hotFood.createRelationshipTo(potsu, MyRelationship.ANSWERS);
-            hotFood.createRelationshipTo(rice, MyRelationship.ANSWERS);
-
             menu.createRelationshipTo(potsu, MyRelationship.DISH);
             menu.createRelationshipTo(rice, MyRelationship.DISH);
 
             Node sandwiches = createNode(nodeName, "sandwiches");
 
-            coldFood.createRelationshipTo(sandwiches, MyRelationship.ANSWERS);
-            coldFood.createRelationshipTo(tunaSalad, MyRelationship.ANSWERS);
-            coldFood.createRelationshipTo(nutSalad, MyRelationship.ANSWERS);
-            coldFood.createRelationshipTo(pastaSalad, MyRelationship.ANSWERS);
+            hotFood.createRelationshipTo(sandwiches, MyRelationship.EXCLUDES);
+            hotFood.createRelationshipTo(tunaSalad, MyRelationship.EXCLUDES);
+            hotFood.createRelationshipTo(nutSalad, MyRelationship.EXCLUDES);
+            hotFood.createRelationshipTo(pastaSalad, MyRelationship.EXCLUDES);
+
+            coldFood.createRelationshipTo(potsu, MyRelationship.EXCLUDES);
+            coldFood.createRelationshipTo(rice, MyRelationship.EXCLUDES);
 
             menu.createRelationshipTo(sandwiches, MyRelationship.DISH);
 
@@ -112,8 +112,7 @@ public class DatabaseHelper {
             mary.createRelationshipTo(nut, MyRelationship.ANSWERED);
             mary.createRelationshipTo(fish, MyRelationship.ANSWERED);
             Relationship maryAndAllergies = mary.createRelationshipTo(allergies, MyRelationship.COMPLETED);
-            maryAndAllergies.setProperty("SEQUENCE","2");
-
+            maryAndAllergies.setProperty("SEQUENCE", "2");
             Relationship maryAndHotOrCold = mary.createRelationshipTo(hotOrCold, MyRelationship.COMPLETED);
             maryAndHotOrCold.setProperty("SEQUENCE","1");
 

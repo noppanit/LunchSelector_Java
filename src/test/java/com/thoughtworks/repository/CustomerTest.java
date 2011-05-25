@@ -2,6 +2,7 @@ package com.thoughtworks.repository;
 
 import com.thoughtworks.model.Customer;
 import com.thoughtworks.model.Menu;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.neo4j.graphdb.Node;
 
