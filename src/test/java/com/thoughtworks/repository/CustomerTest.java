@@ -2,7 +2,6 @@ package com.thoughtworks.repository;
 
 import com.thoughtworks.model.Customer;
 import com.thoughtworks.model.Menu;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.neo4j.graphdb.Node;
 
@@ -20,7 +19,7 @@ public class CustomerTest extends BaseTest {
         CustomerRepository customerRepository = new CustomerRepository();
         List<Customer> customers = customerRepository.getCustomers();
         Collection<String> nodeNames = getNodeNames(customers);
-        assertThat(nodeNames, containsOnlyNodeNames("Mary"));
+        assertThat(nodeNames, containsOnlyNodeNames("Mary", "Joy", "John"));
     }
 
     @Test

@@ -6,9 +6,7 @@ import com.thoughtworks.model.Menu;
 import com.thoughtworks.relationship.MyRelationship;
 import com.thoughtworks.util.ListHelper;
 import org.neo4j.graphdb.*;
-import org.neo4j.graphmatching.*;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -24,15 +22,9 @@ public class CustomerRepository {
                 ReturnableEvaluator.ALL_BUT_START_NODE,
                 MyRelationship.CUSTOMER, Direction.OUTGOING);
 
-        Collection<Node> nodes = traverse.getAllNodes();
-        List<Customer> allCustomers = new ArrayList<Customer>();
-        for (Node node : nodes) {
+        Collection<Node> allNodes = traverse.getAllNodes();
+        List<Customer> allCustomers = (List<Customer>) ListHelper.convertNodesToNodeObjects(allNodes);
 
-            Customer customer = new Customer();
-            customer.setName(node.getProperty("name").toString());
-
-            allCustomers.add(customer);
-        }
         return allCustomers;
     }
 
@@ -42,12 +34,12 @@ public class CustomerRepository {
         List<Menu> listOfHotOrColdDishes = menuRepository.getDishes();
         List<Menu> listOfExcludedDishes = getExcludedDishes(customerNode);
 
-        return (List<Menu>) new ListHelper().substracts(listOfHotOrColdDishes, listOfExcludedDishes);
+        return (List<Menu>) ListHelper.substracts(listOfHotOrColdDishes, listOfExcludedDishes);
     }
 
     private List<Menu> getExcludedDishes(Node customerNode) {
 
-        List<Menu> excludedDishes = new ArrayList<Menu>();
+
         Traverser traverser = customerNode.traverse(Traverser.Order.BREADTH_FIRST,
                 StopEvaluator.END_OF_GRAPH,
                 new ReturnableEvaluator() {
@@ -63,11 +55,7 @@ public class CustomerRepository {
                 MyRelationship.EXCLUDES, Direction.OUTGOING);
 
         Collection<Node> allNodes = traverser.getAllNodes();
-        for (Node node : allNodes) {
-            Menu menu = new Menu();
-            menu.setName(node.getProperty("name").toString());
-            excludedDishes.add(menu);
-        }
+        List<Menu> excludedDishes = (List<Menu>) ListHelper.convertNodesToNodeObjects(allNodes);
 
         return excludedDishes;
     }
@@ -87,6 +75,7 @@ public class CustomerRepository {
                     }
                 },
                 MyRelationship.CUSTOMER, Direction.OUTGOING);
+
         return traverser.getAllNodes().iterator().next();
 
     }

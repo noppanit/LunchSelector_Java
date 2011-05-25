@@ -4,7 +4,6 @@ import com.thoughtworks.constant.Constant;
 import com.thoughtworks.relationship.MyRelationship;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
-import org.neo4j.graphdb.Relationship;
 import org.neo4j.graphdb.Transaction;
 import org.neo4j.graphdb.index.Index;
 import org.neo4j.kernel.EmbeddedGraphDatabase;
@@ -60,23 +59,24 @@ public class DatabaseHelper {
             menu.createRelationshipTo(pastaSalad, MyRelationship.DISH);
             menu.createRelationshipTo(nutSalad, MyRelationship.DISH);
 
-            Node mary = createNode(nodeName, "Mary");
+            Node mary = createCustomer(customer, "Mary");
+            Node joy = createCustomer(customer, "Joy");
+            Node john = createCustomer(customer, "John");
 
+            Node hotOrCold = addQuestion("Do you want hot or cold food?", question);
+            Node canYouEat = addQuestion("Can you eat all food types?", question);
 
-            Node allergies = createNode(nodeName, "What allergies do you have?");
+            Node yes = addAnswerToQuestion(canYouEat, "yes");
+            Node no = addAnswerToQuestion(canYouEat, "no");
 
-            Node hotOrCold = createNode(nodeName, "Do you want hot or cold food?");
+            joy.createRelationshipTo(yes, MyRelationship.ANSWERED);
 
-            allergies.createRelationshipTo(hotOrCold, MyRelationship.RELATES);
+            Node allergies = addQuestion("What allergies do you have?", question);
 
-            question.createRelationshipTo(allergies, MyRelationship.QUESTION);
-            question.createRelationshipTo(hotOrCold, MyRelationship.QUESTION);
+            no.createRelationshipTo(allergies, MyRelationship.REQUIRES);
 
-            Node hotFood = createNode(nodeName, "hot");
-            Node coldFood = createNode(nodeName, "cold");
-
-            hotOrCold.createRelationshipTo(hotFood, MyRelationship.ANSWERS);
-            hotOrCold.createRelationshipTo(coldFood, MyRelationship.ANSWERS);
+            Node hotFood = addAnswerToQuestion(hotOrCold,"hot");
+            Node coldFood = addAnswerToQuestion(hotOrCold,"cold");
 
             Node potsu = createNode(nodeName, "grilled chicken potsu");
             Node rice = createNode(nodeName, "fried rice");
@@ -96,25 +96,19 @@ public class DatabaseHelper {
 
             menu.createRelationshipTo(sandwiches, MyRelationship.DISH);
 
-            Node fish = createNode(nodeName, "fish");
-            Node nut = createNode(nodeName, "nut");
-            Node wheat = createNode(nodeName, "wheat");
+            Node fish = addAnswerToQuestion(allergies,"fish");
+            Node nut = addAnswerToQuestion(allergies,"nut");
+            Node wheat = addAnswerToQuestion(allergies,"wheat");
 
-            allergies.createRelationshipTo(fish, MyRelationship.ANSWERS);
-            allergies.createRelationshipTo(nut, MyRelationship.ANSWERS);
-            allergies.createRelationshipTo(wheat, MyRelationship.ANSWERS);
 
-            customer.createRelationshipTo(mary, MyRelationship.CUSTOMER);
 
             nut.createRelationshipTo(nutSalad, MyRelationship.EXCLUDES);
             fish.createRelationshipTo(tunaSalad, MyRelationship.EXCLUDES);
 
             mary.createRelationshipTo(nut, MyRelationship.ANSWERED);
             mary.createRelationshipTo(fish, MyRelationship.ANSWERED);
-            Relationship maryAndAllergies = mary.createRelationshipTo(allergies, MyRelationship.COMPLETED);
-            maryAndAllergies.setProperty("SEQUENCE", "2");
-            Relationship maryAndHotOrCold = mary.createRelationshipTo(hotOrCold, MyRelationship.COMPLETED);
-            maryAndHotOrCold.setProperty("SEQUENCE","1");
+            mary.createRelationshipTo(allergies, MyRelationship.COMPLETED);
+            mary.createRelationshipTo(hotOrCold, MyRelationship.COMPLETED);
 
             mary.createRelationshipTo(coldFood, MyRelationship.ANSWERED);
 
@@ -126,6 +120,24 @@ public class DatabaseHelper {
             tx.finish();
         }
 
+    }
+
+    private Node createCustomer(Node customer, String customerName) {
+        Node customerNode = createNode(nodeName, customerName);
+        customer.createRelationshipTo(customerNode, MyRelationship.CUSTOMER);
+        return customerNode;
+    }
+
+    private Node addAnswerToQuestion(Node question, String answerString) {
+        Node answer = createNode(nodeName, answerString);
+        question.createRelationshipTo(answer, MyRelationship.ANSWERS);
+        return answer;
+    }
+
+    private Node addQuestion(String questionString, Node questionNode) {
+        Node question = createNode(nodeName, questionString);
+        questionNode.createRelationshipTo(question, MyRelationship.QUESTION);
+        return question;
     }
 
     private void relateToRoot(Node rootNode, Node node) {

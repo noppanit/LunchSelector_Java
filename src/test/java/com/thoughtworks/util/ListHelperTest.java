@@ -15,8 +15,6 @@ public class ListHelperTest {
     @Test
     public void shouldReturnOnlyDifferentItemOfList()
     {
-        ListHelper listHelper = new ListHelper();
-
         Menu menu1 = new Menu();
         menu1.setName("menu1");
 
@@ -40,7 +38,7 @@ public class ListHelperTest {
         nodeObjectList1.add(menu21);
         nodeObjectList1.add(menu31);
 
-        List<Menu> substractedNode = (List<Menu>) listHelper.substracts(nodeObjectList, nodeObjectList1);
+        List<Menu> substractedNode = (List<Menu>) ListHelper.substracts(nodeObjectList, nodeObjectList1);
 
         assertThat( substractedNode.size(), is(1));
         assertThat( substractedNode.get(0).getName(), is("menu1"));
