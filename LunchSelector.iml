@@ -22,6 +22,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="MyLib" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.8" level="project" />
     <orderEntry type="library" name="Maven: org.neo4j:neo4j:1.4.M02" level="project" />
     <orderEntry type="library" name="Maven: org.neo4j:neo4j-kernel:1.4.M02" level="project" />
@@ -30,6 +31,7 @@
     <orderEntry type="library" name="Maven: org.neo4j:neo4j-graph-algo:1.4.M02" level="project" />
     <orderEntry type="library" name="Maven: org.neo4j:neo4j-udc:1.4.M02" level="project" />
     <orderEntry type="library" name="Maven: org.neo4j:neo4j-jmx:1.4.M02" level="project" />
+    <orderEntry type="library" name="Maven: org.neo4j.graphmatching:neo4j-graphmatching:1.0" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:3.3.0.SP1" level="project" />
     <orderEntry type="library" name="Maven: antlr:antlr:2.7.6" level="project" />
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.1" level="project" />

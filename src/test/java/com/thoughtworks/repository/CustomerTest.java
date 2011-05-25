@@ -1,9 +1,7 @@
 package com.thoughtworks.repository;
 
-import com.thoughtworks.matcher.ContainsOnlySpecificNameOfNodes;
 import com.thoughtworks.model.Customer;
 import com.thoughtworks.model.Menu;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.neo4j.graphdb.Node;
 
@@ -24,7 +22,6 @@ public class CustomerTest extends BaseTest {
         assertThat(nodeNames, containsOnlyNodeNames("Mary"));
     }
 
-    @Ignore
     @Test
     public void shouldReturnPersonalisedMenu() {
         CustomerRepository customerRepository = new CustomerRepository();
@@ -32,7 +29,7 @@ public class CustomerTest extends BaseTest {
         List<Menu> dishes = customerRepository.getPersonalisedMenu(mary);
         Collection<String> nodeNames = getNodeNames(dishes);
 
-        assertThat(nodeNames, containsOnlyNodeNames("pasta salad"));
+        assertThat(nodeNames, containsOnlyNodeNames("pasta salad","sandwiches"));
     }
 
     @Test

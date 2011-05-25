@@ -33,6 +33,14 @@
         </dependency>
 
         <dependency>
+            <groupId>org.neo4j.graphmatching</groupId>
+            <artifactId>neo4j-graphmatching</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/neo4j-graph-matching.jar</systemPath>
+        </dependency>
+
+        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>3.3.0.SP1</version>

@@ -4,6 +4,7 @@ import com.thoughtworks.constant.Constant;
 import com.thoughtworks.relationship.MyRelationship;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
+import org.neo4j.graphdb.Relationship;
 import org.neo4j.graphdb.Transaction;
 import org.neo4j.graphdb.index.Index;
 import org.neo4j.kernel.EmbeddedGraphDatabase;
@@ -66,6 +67,8 @@ public class DatabaseHelper {
 
             Node hotOrCold = createNode(nodeName, "Do you want hot or cold food?");
 
+            allergies.createRelationshipTo(hotOrCold, MyRelationship.RELATES);
+
             question.createRelationshipTo(allergies, MyRelationship.QUESTION);
             question.createRelationshipTo(hotOrCold, MyRelationship.QUESTION);
 
@@ -108,7 +111,13 @@ public class DatabaseHelper {
 
             mary.createRelationshipTo(nut, MyRelationship.ANSWERED);
             mary.createRelationshipTo(fish, MyRelationship.ANSWERED);
-            mary.createRelationshipTo(allergies, MyRelationship.COMPLETED);
+            Relationship maryAndAllergies = mary.createRelationshipTo(allergies, MyRelationship.COMPLETED);
+            maryAndAllergies.setProperty("SEQUENCE","2");
+
+            Relationship maryAndHotOrCold = mary.createRelationshipTo(hotOrCold, MyRelationship.COMPLETED);
+            maryAndHotOrCold.setProperty("SEQUENCE","1");
+
+            mary.createRelationshipTo(coldFood, MyRelationship.ANSWERED);
 
 
             tx.success();

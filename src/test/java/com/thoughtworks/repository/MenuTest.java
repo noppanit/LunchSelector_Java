@@ -12,13 +12,12 @@ import static org.junit.Assert.assertThat;
 
 public class MenuTest extends BaseTest {
 
-    @Ignore
     @Test
     public void shouldReturnAllDishes() {
         MenuRepository menu = new MenuRepository();
         List<Menu> nodes = menu.getDishes();
         Collection<String> nodeNames = getNodeNames(nodes);
-        assertThat(nodeNames, containsOnlyNodeNames("tuna salad", "pasta salad", "nut salad"));
+        assertThat(nodeNames, containsOnlyNodeNames("tuna salad", "pasta salad", "nut salad", "sandwiches","grilled chicken potsu", "fried rice"));
     }
 
 

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Maven: org.neo4j.graphmatching:neo4j-graphmatching:1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/webapp/WEB-INF/lib/neo4j-graph-matching.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
