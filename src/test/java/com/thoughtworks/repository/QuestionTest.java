@@ -1,6 +1,5 @@
 package com.thoughtworks.repository;
 
-import com.thoughtworks.matcher.ContainsOnlySpecificNameOfNodes;
 import com.thoughtworks.model.Question;
 import org.junit.Test;
 import org.neo4j.graphdb.Node;

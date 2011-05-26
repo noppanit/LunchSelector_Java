@@ -6,6 +6,11 @@
 </head>
 <body>
 <h1>Hi! This is all the menu we suggest you.</h1>
+<h3>
+    <a href="">
+        Next Question
+    </a>
+</h3>
 <ol>
     <c:forEach var="personalisedMenu" items="${personalisedMenus}">
         <li>

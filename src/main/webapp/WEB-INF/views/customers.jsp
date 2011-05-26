@@ -9,7 +9,7 @@
 <ol>
     <c:forEach var="customer" items="${customers}">
         <li>
-            <a href="customers/menu?username=${customer.name}">${customer.name}</a>
+            <a href="customers/menu/${customer.name}">${customer.name}</a>
         </li>
     </c:forEach>
 </ol>

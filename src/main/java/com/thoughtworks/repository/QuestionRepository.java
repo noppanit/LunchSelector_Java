@@ -6,7 +6,6 @@ import com.thoughtworks.relationship.MyRelationship;
 import com.thoughtworks.util.ListHelper;
 import org.neo4j.graphdb.*;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
