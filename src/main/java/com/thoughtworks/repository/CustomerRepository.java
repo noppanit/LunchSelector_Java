@@ -34,7 +34,7 @@ public class CustomerRepository {
         List<Menu> listOfHotOrColdDishes = menuRepository.getDishes();
         List<Menu> listOfExcludedDishes = getExcludedDishes(customerNode);
 
-        return (List<Menu>) ListHelper.substracts(listOfHotOrColdDishes, listOfExcludedDishes);
+        return ListHelper.substracts(listOfHotOrColdDishes, listOfExcludedDishes);
     }
 
     private List<Menu> getExcludedDishes(Node customerNode) {

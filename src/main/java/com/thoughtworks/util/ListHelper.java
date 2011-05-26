@@ -10,13 +10,13 @@ import java.util.List;
 
 public class ListHelper {
 
-    public static List<? extends NodeObject> substracts(List<? extends NodeObject> supersetNode, List<? extends NodeObject> subsetNode) {
+    public static <T> List<T> substracts(List<T> supersetNode, List<T> subsetNode) {
 
-        for (Iterator<NodeObject> it = (Iterator<NodeObject>) supersetNode.iterator(); it.hasNext();) {
+        for (Iterator<T> it =  supersetNode.iterator(); it.hasNext();) {
 
-            NodeObject superNode = it.next();
-            for (Iterator<NodeObject> it1 = (Iterator<NodeObject>) subsetNode.iterator(); it1.hasNext();) {
-                NodeObject subNode = it1.next();
+            NodeObject superNode = (NodeObject) it.next();
+            for (Iterator<T> it1 = subsetNode.iterator(); it1.hasNext();) {
+                NodeObject subNode = (NodeObject) it1.next();
                 if (superNode.getName().equals(subNode.getName())) {
                     it.remove();
                 }

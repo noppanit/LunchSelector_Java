@@ -9,11 +9,12 @@ import java.util.List;
 
 public abstract class BaseTest {
 
-    protected Collection<String> getNodeNames(List<? extends NodeObject> dishes) {
+    protected <T> Collection<String> getNodeNames(List<T> dishes) {
         Collection<String> nodeNames = new ArrayList<String>();
-        for( NodeObject node: dishes )
+        for( T node: dishes )
         {
-            nodeNames.add(node.getName());
+            NodeObject nodeObject = (NodeObject) node;
+            nodeNames.add(nodeObject.getName());
         }
         return nodeNames;
     }

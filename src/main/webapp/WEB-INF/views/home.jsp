@@ -18,5 +18,10 @@
         List of customer
     </a>
 </h2>
+<h2>
+    <a href="startprocess">
+        Start a process
+    </a>
+</h2>
 </body>
 </html>

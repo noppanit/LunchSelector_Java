@@ -100,8 +100,6 @@ public class DatabaseHelper {
             Node nut = addAnswerToQuestion(allergies,"nut");
             Node wheat = addAnswerToQuestion(allergies,"wheat");
 
-
-
             nut.createRelationshipTo(nutSalad, MyRelationship.EXCLUDES);
             fish.createRelationshipTo(tunaSalad, MyRelationship.EXCLUDES);
 
@@ -112,6 +110,9 @@ public class DatabaseHelper {
 
             mary.createRelationshipTo(coldFood, MyRelationship.ANSWERED);
 
+            joy.createRelationshipTo(canYouEat, MyRelationship.COMPLETED);
+
+            yes.createRelationshipTo(allergies, MyRelationship.EXCLUDES);
 
             tx.success();
         } catch (Exception ex) {

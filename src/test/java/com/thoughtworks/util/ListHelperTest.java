@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.thoughtworks.util.ListHelper.substracts;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -38,7 +39,7 @@ public class ListHelperTest {
         nodeObjectList1.add(menu21);
         nodeObjectList1.add(menu31);
 
-        List<Menu> substractedNode = (List<Menu>) ListHelper.substracts(nodeObjectList, nodeObjectList1);
+        List<NodeObject> substractedNode = substracts(nodeObjectList, nodeObjectList1);
 
         assertThat( substractedNode.size(), is(1));
         assertThat( substractedNode.get(0).getName(), is("menu1"));
