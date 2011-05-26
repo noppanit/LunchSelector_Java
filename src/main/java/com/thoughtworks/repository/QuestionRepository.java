@@ -1,12 +1,14 @@
 package com.thoughtworks.repository;
 
 import com.thoughtworks.database.DatabaseHelper;
+import com.thoughtworks.model.Answer;
 import com.thoughtworks.model.Question;
 import com.thoughtworks.relationship.MyRelationship;
 import com.thoughtworks.util.ListHelper;
 import org.neo4j.graphdb.*;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class QuestionRepository {
@@ -38,6 +40,39 @@ public class QuestionRepository {
         return completedQuestions;
     }
 
+    public Node getQuestion(final String questionString) {
+        Node questionNode = db.getQuestionsNode();
+
+        Traverser traverse = questionNode.traverse(Traverser.Order.BREADTH_FIRST,
+                StopEvaluator.END_OF_GRAPH,
+                new ReturnableEvaluator() {
+                    @Override
+                    public boolean isReturnableNode(TraversalPosition traversalPosition) {
+                        if (traversalPosition.currentNode().getProperty("name").equals(questionString)) {
+                            return true;
+                        }
+                        return false;
+                    }
+                },
+                MyRelationship.QUESTION, Direction.OUTGOING);
+
+        return traverse.getAllNodes().iterator().next();
+    }
+
+    public List<Answer> getAnswers(String questionString) {
+        Node theQuestion = getQuestion(questionString);
+
+        Traverser traverse = theQuestion.traverse(Traverser.Order.BREADTH_FIRST,
+                StopEvaluator.END_OF_GRAPH,
+                ReturnableEvaluator.ALL_BUT_START_NODE,
+                MyRelationship.ANSWERS, Direction.OUTGOING);
+
+        Collection<Node> allAnswers = traverse.getAllNodes();
+        List<Answer> listOfAnswers = (List<Answer>) ListHelper.convertNodesToNodeObjects(allAnswers);
+
+        return listOfAnswers;
+    }
+
     public List<Question> getNextQuestions(Node customerNode) {
         Node questionNode = db.getQuestionsNode();
         List<Question> listOfQuestions = null;
@@ -55,6 +90,7 @@ public class QuestionRepository {
         return listOfQuestions;
     }
 
+
     private List<Question> getNextQuestionWhenFirstQuestionAnswered(Node customerNode) {
         List<Question> listOfQuestions;
         Traverser traverse = customerNode.traverse(Traverser.Order.BREADTH_FIRST,
@@ -62,15 +98,15 @@ public class QuestionRepository {
                 new ReturnableEvaluator() {
                     @Override
                     public boolean isReturnableNode(TraversalPosition traversalPosition) {
-                        if(traversalPosition.lastRelationshipTraversed() != null &&
+                        if (traversalPosition.lastRelationshipTraversed() != null &&
                                 traversalPosition.lastRelationshipTraversed().isType(MyRelationship.EXCLUDES) &&
-                                traversalPosition.currentNode().hasRelationship(MyRelationship.QUESTION,Direction.INCOMING))
+                                traversalPosition.currentNode().hasRelationship(MyRelationship.QUESTION, Direction.INCOMING))
                             return true;
                         return false;
                     }
                 },
-                MyRelationship.ANSWERED,Direction.OUTGOING,
-                MyRelationship.EXCLUDES,Direction.OUTGOING);
+                MyRelationship.ANSWERED, Direction.OUTGOING,
+                MyRelationship.EXCLUDES, Direction.OUTGOING);
         Collection<Node> nodes = traverse.getAllNodes();
         listOfQuestions = (List<Question>) ListHelper.convertNodesToNodeObjects(nodes);
         return listOfQuestions;
@@ -97,6 +133,4 @@ public class QuestionRepository {
         List<Question> listOfQuestions = (List<Question>) ListHelper.convertNodesToNodeObjects(nodes);
         return listOfQuestions;
     }
-
-
 }

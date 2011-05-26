@@ -1,5 +1,6 @@
 package com.thoughtworks.repository;
 
+import com.thoughtworks.model.Answer;
 import com.thoughtworks.model.Question;
 import org.junit.Test;
 import org.neo4j.graphdb.Node;
@@ -56,5 +57,25 @@ public class QuestionTest extends BaseTest {
         Collection<String> nodeNames = getNodeNames(listOfQuestions);
         assertThat(listOfQuestions.size(), is(1));
         assertThat(nodeNames, containsOnlyNodeNames("Do you want hot or cold food?"));
+    }
+
+    @Test
+    public void shouldReturnQuestionNodeByName()
+    {
+        QuestionRepository questionRepository = new QuestionRepository();
+        Node theQuestion = questionRepository.getQuestion("Can you eat all food types?");
+
+        assertThat(theQuestion.getProperty("name").toString(), is("Can you eat all food types?"));
+    }
+
+    @Test
+    public void shouldReturnAnswersFromQuestion()
+    {
+        QuestionRepository questionRepository = new QuestionRepository();
+        List<Answer> listOfAnswers = questionRepository.getAnswers("Can you eat all food types?");
+
+        Collection<String> nodeNames = getNodeNames(listOfAnswers);
+        assertThat(listOfAnswers.size(), is(2));
+        assertThat(nodeNames, containsOnlyNodeNames("yes","no"));
     }
 }
