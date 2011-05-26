@@ -133,4 +133,8 @@ public class QuestionRepository {
         List<Question> listOfQuestions = (List<Question>) ListHelper.convertNodesToNodeObjects(nodes);
         return listOfQuestions;
     }
+
+    public Node getQuestionById(long questionId) {
+        return db.getNodeById(questionId);
+    }
 }

@@ -60,8 +60,7 @@ public class QuestionTest extends BaseTest {
     }
 
     @Test
-    public void shouldReturnQuestionNodeByName()
-    {
+    public void shouldReturnQuestionNodeByName() {
         QuestionRepository questionRepository = new QuestionRepository();
         Node theQuestion = questionRepository.getQuestion("Can you eat all food types?");
 
@@ -69,13 +68,20 @@ public class QuestionTest extends BaseTest {
     }
 
     @Test
-    public void shouldReturnAnswersFromQuestion()
-    {
+    public void shouldReturnQuestionById() {
+        QuestionRepository questionRepository = new QuestionRepository();
+        Node theQuestion = questionRepository.getQuestionById(11);
+
+        assertThat(theQuestion.getProperty("name").toString(), is("Can you eat all food types?"));
+    }
+
+    @Test
+    public void shouldReturnAnswersFromQuestion() {
         QuestionRepository questionRepository = new QuestionRepository();
         List<Answer> listOfAnswers = questionRepository.getAnswers("Can you eat all food types?");
 
         Collection<String> nodeNames = getNodeNames(listOfAnswers);
         assertThat(listOfAnswers.size(), is(2));
-        assertThat(nodeNames, containsOnlyNodeNames("yes","no"));
+        assertThat(nodeNames, containsOnlyNodeNames("yes", "no"));
     }
 }

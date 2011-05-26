@@ -29,6 +29,23 @@ public class DatabaseHelper {
             return new DatabaseHelper();
         }
         return db;
+
+    }
+
+    public Node getCustomerNode() {
+        return customersIndex.get("name", "Customers").getSingle();
+    }
+
+    public Node getMenuNode() {
+        return menuIndex.get("name", "Menu").getSingle();
+    }
+
+    public Node getQuestionsNode() {
+        return questionIndex.get("name", "Questions").getSingle();
+    }
+
+    public Node getNodeById(long nodeId) {
+        return graphDb.getNodeById(nodeId);
     }
 
     private DatabaseHelper() {
@@ -75,8 +92,8 @@ public class DatabaseHelper {
 
             no.createRelationshipTo(allergies, MyRelationship.REQUIRES);
 
-            Node hotFood = addAnswerToQuestion(hotOrCold,"hot");
-            Node coldFood = addAnswerToQuestion(hotOrCold,"cold");
+            Node hotFood = addAnswerToQuestion(hotOrCold, "hot");
+            Node coldFood = addAnswerToQuestion(hotOrCold, "cold");
 
             Node potsu = createNode(nodeName, "grilled chicken potsu");
             Node rice = createNode(nodeName, "fried rice");
@@ -96,9 +113,9 @@ public class DatabaseHelper {
 
             menu.createRelationshipTo(sandwiches, MyRelationship.DISH);
 
-            Node fish = addAnswerToQuestion(allergies,"fish");
-            Node nut = addAnswerToQuestion(allergies,"nut");
-            Node wheat = addAnswerToQuestion(allergies,"wheat");
+            Node fish = addAnswerToQuestion(allergies, "fish");
+            Node nut = addAnswerToQuestion(allergies, "nut");
+            Node wheat = addAnswerToQuestion(allergies, "wheat");
 
             nut.createRelationshipTo(nutSalad, MyRelationship.EXCLUDES);
             fish.createRelationshipTo(tunaSalad, MyRelationship.EXCLUDES);
@@ -153,18 +170,6 @@ public class DatabaseHelper {
 
     private Node getRoot() {
         return graphDb.getReferenceNode();
-    }
-
-    public Node getCustomerNode() {
-        return customersIndex.get("name", "Customers").getSingle();
-    }
-
-    public Node getMenuNode() {
-        return menuIndex.get("name", "Menu").getSingle();
-    }
-
-    public Node getQuestionsNode() {
-        return questionIndex.get("name", "Questions").getSingle();
     }
 
     private static boolean deleteDir(File dir) {
