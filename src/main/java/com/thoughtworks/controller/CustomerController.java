@@ -1,5 +1,6 @@
 package com.thoughtworks.controller;
 
+import com.thoughtworks.database.DatabaseHelper;
 import com.thoughtworks.model.Answer;
 import com.thoughtworks.model.Customer;
 import com.thoughtworks.model.Menu;
@@ -48,7 +49,7 @@ public class CustomerController {
     public String getAnswers(@PathVariable String customername, @PathVariable String questionId, Model model) throws Exception {
         QuestionRepository questionRepository = new QuestionRepository();
         Node theQuestion = questionRepository.getQuestionById(Long.parseLong(questionId));
-        String questionText = theQuestion.getProperty("name").toString();
+        String questionText = theQuestion.getProperty(DatabaseHelper.NODE_NAME).toString();
 
         List<Answer> listOfAnswers = questionRepository.getAnswers(questionText);
         model.addAttribute("answers",listOfAnswers);

@@ -41,18 +41,16 @@ public class ListHelper {
             T newClass = (T) t.getClass().newInstance();
             Class clazz = newClass.getClass();
 
-            Class[] paramTypes = new Class[1];
-            paramTypes[0] = String.class;
-
-            Method m = null;
             while (keysIterator.hasNext()) {
                 String keyString = keysIterator.next();
                 String methodName = "set" + keyString;
 
                 try {
-                    m = clazz.getMethod(methodName, paramTypes);
-
+                    Method m = clazz.getMethod(methodName, new Class[] {String.class});
                     m.invoke(newClass, node.getProperty(keyString).toString());
+
+                    Method idMethod = clazz.getMethod("setId", new Class[] {long.class});
+                    idMethod.invoke(newClass, node.getId());
 
                 } catch (NoSuchMethodException e) {
                     e.printStackTrace();
