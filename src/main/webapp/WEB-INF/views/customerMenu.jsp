@@ -6,6 +6,11 @@
 </head>
 <body>
 <h1>Hi! This is all the menu we suggest you.</h1>
+<h2>
+    <a href="/">
+        Home
+    </a>
+</h2>
 <h3>
     <a href="/customers/${customername}/questions">
         Next Question

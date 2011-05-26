@@ -6,6 +6,11 @@
 </head>
 <body>
 <h1>Hi! This is all the menu.</h1>
+<h2>
+    <a href="/">
+        Home
+    </a>
+</h2>
 <ol>
     <c:forEach var="dish" items="${dishes}">
         <li>
