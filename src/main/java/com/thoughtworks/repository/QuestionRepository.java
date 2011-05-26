@@ -40,6 +40,10 @@ public class QuestionRepository {
         return completedQuestions;
     }
 
+    public Node getQuestionById(long questionId) {
+        return db.getNodeById(questionId);
+    }
+
     public Node getQuestion(final String questionString) {
         Node questionNode = db.getQuestionsNode();
 
@@ -73,6 +77,7 @@ public class QuestionRepository {
         return listOfAnswers;
     }
 
+
     public List<Question> getNextQuestions(Node customerNode) {
         Node questionNode = db.getQuestionsNode();
         List<Question> listOfQuestions = null;
@@ -89,7 +94,6 @@ public class QuestionRepository {
 
         return listOfQuestions;
     }
-
 
     private List<Question> getNextQuestionWhenFirstQuestionAnswered(Node customerNode) {
         List<Question> listOfQuestions;
@@ -132,9 +136,5 @@ public class QuestionRepository {
         Collection<Node> nodes = traverse.getAllNodes();
         List<Question> listOfQuestions = (List<Question>) ListHelper.convertNodesToNodeObjects(nodes);
         return listOfQuestions;
-    }
-
-    public Node getQuestionById(long questionId) {
-        return db.getNodeById(questionId);
     }
 }

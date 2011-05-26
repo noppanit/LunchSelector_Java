@@ -31,9 +31,10 @@ public class ListHelper {
         List<NodeObject> listOfQuestions = new ArrayList<NodeObject>();
         for (Node node : nodes) {
 
-            NodeObject question = new NodeObject();
-            question.setName(node.getProperty("name").toString());
-            listOfQuestions.add(question);
+            NodeObject nodeObject = new NodeObject();
+            nodeObject.setName(node.getProperty("name").toString());
+            nodeObject.setId(node.getId());
+            listOfQuestions.add(nodeObject);
         }
         return listOfQuestions;
     }

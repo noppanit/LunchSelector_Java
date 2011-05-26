@@ -5,7 +5,7 @@
     <title>Menu</title>
 </head>
 <body>
-<h1>Hi! This is all the menu we suggest you.</h1>
+<h1>Hi! Please answer this question</h1>
 <h2>
     <a href="/">
         Home
@@ -17,10 +17,10 @@
     </a>
 </h3>
 <ol>
-    <c:forEach var="nextQuestion" items="${nextQuestions}">
+    <c:forEach var="answer" items="${answers}">
         <li>
-            <a href="/customers/${customername}/questions/${nextQuestion.id}">
-                ${nextQuestion.name}
+            <a href="">
+                ${answer.name}
             <a/>
         </li>
     </c:forEach>

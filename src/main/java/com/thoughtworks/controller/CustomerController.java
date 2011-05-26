@@ -1,5 +1,6 @@
 package com.thoughtworks.controller;
 
+import com.thoughtworks.model.Answer;
 import com.thoughtworks.model.Customer;
 import com.thoughtworks.model.Menu;
 import com.thoughtworks.model.Question;
@@ -38,6 +39,19 @@ public class CustomerController {
         model.addAttribute("customername",customername);
 
         return "customerQuestion";
+    }
+
+    @RequestMapping(value = "/customers/{customername}/questions/{questionId}", method = RequestMethod.GET)
+    public String getAnswers(@PathVariable String customername, @PathVariable String questionId, Model model)
+    {
+        QuestionRepository questionRepository = new QuestionRepository();
+        Node theQuestion = questionRepository.getQuestionById(Long.parseLong(questionId));
+
+        List<Answer> listOfAnswers = questionRepository.getAnswers(theQuestion.getProperty("name").toString());
+        model.addAttribute("answers",listOfAnswers);
+        model.addAttribute("customername",customername);
+
+        return "answers";
     }
 
     @RequestMapping(value = "/customers/menu/{customername}", method = RequestMethod.GET)
