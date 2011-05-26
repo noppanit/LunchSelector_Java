@@ -7,14 +7,14 @@
 <body>
 <h1>Hi! This is all the menu we suggest you.</h1>
 <h3>
-    <a href="/customers/${customername}/questions">
-        Next Question
+    <a href="/customers/menu/${customername}">
+        Personalised Menu
     </a>
 </h3>
 <ol>
-    <c:forEach var="personalisedMenu" items="${personalisedMenus}">
+    <c:forEach var="nextQuestion" items="${nextQuestions}">
         <li>
-            ${personalisedMenu.name}
+            ${nextQuestion.name}
         </li>
     </c:forEach>
 </ol>

@@ -2,14 +2,15 @@ package com.thoughtworks.controller;
 
 import com.thoughtworks.model.Customer;
 import com.thoughtworks.model.Menu;
+import com.thoughtworks.model.Question;
 import com.thoughtworks.repository.CustomerRepository;
+import com.thoughtworks.repository.QuestionRepository;
 import org.neo4j.graphdb.Node;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -27,8 +28,15 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/customers/{customername}/questions", method = RequestMethod.GET)
-    public String getNextQuestion()
+    public String getNextQuestion(@PathVariable String customername, Model model)
     {
+        QuestionRepository questionRepository = new QuestionRepository();
+        CustomerRepository customerRepository = new CustomerRepository();
+        Node customerNode = customerRepository.getCustomer(customername);
+        List<Question> listOfNextQuestions = questionRepository.getNextQuestions(customerNode);
+        model.addAttribute("nextQuestions", listOfNextQuestions);
+        model.addAttribute("customername",customername);
+
         return "customerQuestion";
     }
 
@@ -39,6 +47,7 @@ public class CustomerController {
         Node customer = customerRepository.getCustomer(customername);
         List<Menu> customerPersonalisedMenu = customerRepository.getPersonalisedMenu(customer);
         model.addAttribute("personalisedMenus", customerPersonalisedMenu);
+        model.addAttribute("customername",customername);
 
         return "customerMenu";
     }
