@@ -48,6 +48,10 @@ public class DatabaseHelper {
         return graphDb.getNodeById(nodeId);
     }
 
+    public GraphDatabaseService getDatabaseService() {
+        return graphDb;
+    }
+
     private DatabaseHelper() {
         Transaction tx = graphDb.beginTx();
         try {

@@ -22,12 +22,14 @@
 <h3>
     ${questionText}
 </h3>
-<form action="/customers/${customername}/questions/${questionId}" method="POST">
+<form name="customerForm" id="customerForm" action="/customers/answer" method="POST">
+    <input type="hidden" name="customername" id="customername" value="${customername}" />
+    <input type="hidden" name="questionId" id="questionId" value="${questionId}" />
     <ol>
         <c:forEach var="answer" items="${answers}">
             <li>
 
-                <input type="checkbox" value="${answer.id}" name="answers">${answer.name}</input>
+                <input type="radio" value="${answer.id}" name="answerId" id="answerId">${answer.name}</input>
 
             </li>
         </c:forEach>

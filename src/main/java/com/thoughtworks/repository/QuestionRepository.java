@@ -8,7 +8,6 @@ import com.thoughtworks.util.ListHelper;
 import org.neo4j.graphdb.*;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class QuestionRepository {
@@ -40,7 +39,15 @@ public class QuestionRepository {
         return completedQuestions;
     }
 
+    public Node getAnswerById(long answerId) {
+        return getNodeById(answerId);
+    }
+
     public Node getQuestionById(long questionId) {
+        return getNodeById(questionId);
+    }
+
+    private Node getNodeById(long questionId) {
         return db.getNodeById(questionId);
     }
 

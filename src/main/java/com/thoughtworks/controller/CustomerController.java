@@ -12,13 +12,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import static org.springframework.web.bind.annotation.RequestMethod.*;
+
 @Controller
+@RequestMapping("/customers")
 public class CustomerController {
 
-    @RequestMapping(value = "/customers", method = RequestMethod.GET)
+    @RequestMapping(method = GET)
     public String customers(Model model)
     {
         CustomerRepository customerRepository = new CustomerRepository();
@@ -28,7 +33,7 @@ public class CustomerController {
         return "customers";
     }
 
-    @RequestMapping(value = "/customers/{customername}/questions", method = RequestMethod.GET)
+    @RequestMapping(value = "{customername}/questions", method = GET)
     public String getNextQuestion(@PathVariable String customername, Model model)
     {
         QuestionRepository questionRepository = new QuestionRepository();
@@ -41,7 +46,7 @@ public class CustomerController {
         return "customerQuestion";
     }
 
-    @RequestMapping(value = "/customers/{customername}/questions/{questionId}", method = RequestMethod.GET)
+    @RequestMapping(value = "{customername}/questions/{questionId}", method = GET)
     public String getAnswers(@PathVariable String customername, @PathVariable String questionId, Model model)
     {
         QuestionRepository questionRepository = new QuestionRepository();
@@ -57,14 +62,26 @@ public class CustomerController {
         return "answers";
     }
 
-    @RequestMapping(value = "/customers/{customername}/questions/{questionId}", method = RequestMethod.POST)
-    public String answerTheQuestion(@PathVariable String customername, @PathVariable String questionId, Model model)
+    @RequestMapping(value = "answer", method = POST)
+    public String answer(@RequestParam String answerId, @RequestParam String customername, @RequestParam String questionId, Model model)
     {
+        CustomerRepository customerRepository = new CustomerRepository();
+        List<Answer> listOfAnswers = new ArrayList<Answer>();
+        Answer answer = new Answer();
+        answer.setId(Long.parseLong(answerId));
+        listOfAnswers.add(answer);
+
+        customerRepository.answerQuestion(customername,Long.parseLong(questionId),listOfAnswers);
+
+        Node customer = customerRepository.getCustomer(customername);
+        List<Menu> customerPersonalisedMenu = customerRepository.getPersonalisedMenu(customer);
+        model.addAttribute("personalisedMenus", customerPersonalisedMenu);
+        model.addAttribute("customername",customername);
 
         return "customerMenu";
     }
 
-    @RequestMapping(value = "/customers/menu/{customername}", method = RequestMethod.GET)
+    @RequestMapping(value = "menu/{customername}", method = GET)
     public String getPersonalisedMenu(@PathVariable String customername, Model model)
     {
         CustomerRepository customerRepository = new CustomerRepository();
