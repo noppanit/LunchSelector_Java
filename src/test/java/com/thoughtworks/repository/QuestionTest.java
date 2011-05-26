@@ -1,5 +1,6 @@
 package com.thoughtworks.repository;
 
+import com.thoughtworks.database.DatabaseHelper;
 import com.thoughtworks.model.Answer;
 import com.thoughtworks.model.Question;
 import org.junit.Test;
@@ -15,16 +16,18 @@ import static org.junit.Assert.assertThat;
 public class QuestionTest extends BaseTest {
 
     @Test
-    public void shouldReturnAllQuestions() {
+    public void shouldReturnAllQuestions() throws Exception {
         QuestionRepository questionRepository = new QuestionRepository();
         List<Question> listOfQuestions = questionRepository.getQuestions();
+        Collection<String> nodeNames = getNodeNames(listOfQuestions);
 
         assertThat(listOfQuestions.size(), is(3));
+        assertThat(nodeNames, containsOnlyNodeNames("Can you eat all food types?", "Do you want hot or cold food?", "What allergies do you have?"));
 
     }
 
     @Test
-    public void shouldReturnCompletedQuestions() {
+    public void shouldReturnCompletedQuestions() throws Exception {
         QuestionRepository questionRepository = new QuestionRepository();
         CustomerRepository customerRepository = new CustomerRepository();
         Node customerNode = customerRepository.getCustomer("Joy");
@@ -36,7 +39,7 @@ public class QuestionTest extends BaseTest {
     }
 
     @Test
-    public void shouldReturnRelevantQuestionsWhenNoQuestionsAnswered() {
+    public void shouldReturnRelevantQuestionsWhenNoQuestionsAnswered() throws Exception {
         QuestionRepository questionRepository = new QuestionRepository();
         CustomerRepository customerRepository = new CustomerRepository();
         Node customerNode = customerRepository.getCustomer("John");
@@ -48,7 +51,7 @@ public class QuestionTest extends BaseTest {
     }
 
     @Test
-    public void shouldReturnRelevantQuestionsWhenFirstQuestionAnswered() {
+    public void shouldReturnRelevantQuestionsWhenFirstQuestionAnswered() throws Exception {
         QuestionRepository questionRepository = new QuestionRepository();
         CustomerRepository customerRepository = new CustomerRepository();
         Node customerNode = customerRepository.getCustomer("Joy");
@@ -64,7 +67,7 @@ public class QuestionTest extends BaseTest {
         QuestionRepository questionRepository = new QuestionRepository();
         Node theQuestion = questionRepository.getQuestion("Can you eat all food types?");
 
-        assertThat(theQuestion.getProperty("name").toString(), is("Can you eat all food types?"));
+        assertThat(theQuestion.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Can you eat all food types?"));
     }
 
     @Test
@@ -72,11 +75,11 @@ public class QuestionTest extends BaseTest {
         QuestionRepository questionRepository = new QuestionRepository();
         Node theQuestion = questionRepository.getQuestionById(11);
 
-        assertThat(theQuestion.getProperty("name").toString(), is("Can you eat all food types?"));
+        assertThat(theQuestion.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Can you eat all food types?"));
     }
 
     @Test
-    public void shouldReturnAnswersFromQuestion() {
+    public void shouldReturnAnswersFromQuestion() throws Exception {
         QuestionRepository questionRepository = new QuestionRepository();
         List<Answer> listOfAnswers = questionRepository.getAnswers("Can you eat all food types?");
 

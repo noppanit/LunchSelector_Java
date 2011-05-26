@@ -15,8 +15,7 @@ public class MenuController {
     private MenuRepository menu = new MenuRepository();
 
     @RequestMapping(value = "/menu", method = RequestMethod.GET)
-    public String menu(Model model)
-    {
+    public String menu(Model model) throws Exception {
         List<Menu> allDishes = menu.getDishes();
 
         model.addAttribute("dishes", allDishes);

@@ -12,7 +12,7 @@ import static org.junit.Assert.assertThat;
 public class MenuTest extends BaseTest {
 
     @Test
-    public void shouldReturnAllDishes() {
+    public void shouldReturnAllDishes() throws Exception {
         MenuRepository menu = new MenuRepository();
         List<Menu> nodes = menu.getDishes();
         Collection<String> nodeNames = getNodeNames(nodes);

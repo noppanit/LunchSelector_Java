@@ -13,7 +13,7 @@ public class MenuRepository {
 
     private DatabaseHelper db = DatabaseHelper.getInstance();
 
-    public List<Menu> getDishes() {
+    public List<Menu> getDishes() throws Exception {
         Node menuNode = db.getMenuNode();
         Traverser traverse = menuNode.traverse(Traverser.Order.BREADTH_FIRST,
                 StopEvaluator.END_OF_GRAPH,
@@ -21,7 +21,7 @@ public class MenuRepository {
                 MyRelationship.DISH, Direction.OUTGOING);
 
         Collection<Node> nodes = traverse.getAllNodes();
-        List<Menu> allDishes = (List<Menu>) ListHelper.convertNodesToNodeObjects(nodes);
+        List<Menu> allDishes = ListHelper.setSpecialProperties(nodes, new Menu());
 
         return allDishes;
     }

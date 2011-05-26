@@ -2,8 +2,10 @@ package com.thoughtworks.util;
 
 import com.thoughtworks.model.Menu;
 import com.thoughtworks.model.NodeObject;
+import com.thoughtworks.model.Question;
 import org.junit.Test;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,8 +45,11 @@ public class ListHelperTest {
 
         assertThat( substractedNode.size(), is(1));
         assertThat( substractedNode.get(0).getName(), is("menu1"));
+    }
 
-
+    @Test
+    public void shouldSetAllProperties()
+    {
 
 
     }

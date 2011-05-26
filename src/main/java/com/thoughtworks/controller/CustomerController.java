@@ -24,8 +24,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 public class CustomerController {
 
     @RequestMapping(method = GET)
-    public String customers(Model model)
-    {
+    public String customers(Model model) throws Exception {
         CustomerRepository customerRepository = new CustomerRepository();
         List<Customer> customers = customerRepository.getCustomers();
 
@@ -34,8 +33,7 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "{customername}/questions", method = GET)
-    public String getNextQuestion(@PathVariable String customername, Model model)
-    {
+    public String getNextQuestion(@PathVariable String customername, Model model) throws Exception {
         QuestionRepository questionRepository = new QuestionRepository();
         CustomerRepository customerRepository = new CustomerRepository();
         Node customerNode = customerRepository.getCustomer(customername);
@@ -47,8 +45,7 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "{customername}/questions/{questionId}", method = GET)
-    public String getAnswers(@PathVariable String customername, @PathVariable String questionId, Model model)
-    {
+    public String getAnswers(@PathVariable String customername, @PathVariable String questionId, Model model) throws Exception {
         QuestionRepository questionRepository = new QuestionRepository();
         Node theQuestion = questionRepository.getQuestionById(Long.parseLong(questionId));
         String questionText = theQuestion.getProperty("name").toString();
@@ -63,8 +60,7 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "answer", method = POST)
-    public String answer(@RequestParam String answerId, @RequestParam String customername, @RequestParam String questionId, Model model)
-    {
+    public String answer(@RequestParam String answerId, @RequestParam String customername, @RequestParam String questionId, Model model) throws Exception {
         CustomerRepository customerRepository = new CustomerRepository();
         List<Answer> listOfAnswers = new ArrayList<Answer>();
         Answer answer = new Answer();
@@ -82,8 +78,7 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "menu/{customername}", method = GET)
-    public String getPersonalisedMenu(@PathVariable String customername, Model model)
-    {
+    public String getPersonalisedMenu(@PathVariable String customername, Model model) throws Exception {
         CustomerRepository customerRepository = new CustomerRepository();
         Node customer = customerRepository.getCustomer(customername);
         List<Menu> customerPersonalisedMenu = customerRepository.getPersonalisedMenu(customer);

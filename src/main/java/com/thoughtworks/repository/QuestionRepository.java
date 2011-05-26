@@ -13,7 +13,7 @@ import java.util.List;
 public class QuestionRepository {
     private DatabaseHelper db = DatabaseHelper.getInstance();
 
-    public List<Question> getQuestions() {
+    public List<Question> getQuestions() throws Exception {
         Node questionNode = db.getQuestionsNode();
         Traverser traverse = questionNode.traverse(Traverser.Order.BREADTH_FIRST,
                 StopEvaluator.END_OF_GRAPH,
@@ -21,12 +21,12 @@ public class QuestionRepository {
                 MyRelationship.QUESTION, Direction.OUTGOING);
 
         Collection<Node> nodes = traverse.getAllNodes();
-        List<Question> allQuestions = (List<Question>) ListHelper.convertNodesToNodeObjects(nodes);
+        List<Question> allQuestions = ListHelper.setSpecialProperties(nodes, new Question());
 
         return allQuestions;
     }
 
-    public List<Question> getCompletedQuestions(Node customerNode) {
+    public List<Question> getCompletedQuestions(Node customerNode) throws Exception {
         Traverser traverse = customerNode.traverse(Traverser.Order.BREADTH_FIRST,
                 StopEvaluator.END_OF_GRAPH,
                 ReturnableEvaluator.ALL_BUT_START_NODE,
@@ -34,7 +34,7 @@ public class QuestionRepository {
 
         Collection<Node> nodes = traverse.getAllNodes();
 
-        List<Question> completedQuestions = (List<Question>) ListHelper.convertNodesToNodeObjects(nodes);
+        List<Question> completedQuestions = ListHelper.setSpecialProperties(nodes, new Question());
 
         return completedQuestions;
     }
@@ -59,7 +59,7 @@ public class QuestionRepository {
                 new ReturnableEvaluator() {
                     @Override
                     public boolean isReturnableNode(TraversalPosition traversalPosition) {
-                        if (traversalPosition.currentNode().getProperty("name").equals(questionString)) {
+                        if (traversalPosition.currentNode().getProperty(DatabaseHelper.NODE_NAME).equals(questionString)) {
                             return true;
                         }
                         return false;
@@ -70,7 +70,7 @@ public class QuestionRepository {
         return traverse.getAllNodes().iterator().next();
     }
 
-    public List<Answer> getAnswers(String questionString) {
+    public List<Answer> getAnswers(String questionString) throws Exception {
         Node theQuestion = getQuestion(questionString);
 
         Traverser traverse = theQuestion.traverse(Traverser.Order.BREADTH_FIRST,
@@ -78,14 +78,14 @@ public class QuestionRepository {
                 ReturnableEvaluator.ALL_BUT_START_NODE,
                 MyRelationship.ANSWERS, Direction.OUTGOING);
 
-        Collection<Node> allAnswers = traverse.getAllNodes();
-        List<Answer> listOfAnswers = (List<Answer>) ListHelper.convertNodesToNodeObjects(allAnswers);
+        Collection<Node> nodes = traverse.getAllNodes();
+        List<Answer> listOfAnswers = ListHelper.setSpecialProperties(nodes, new Answer());
 
         return listOfAnswers;
     }
 
 
-    public List<Question> getNextQuestions(Node customerNode) {
+    public List<Question> getNextQuestions(Node customerNode) throws Exception {
         Node questionNode = db.getQuestionsNode();
         List<Question> listOfQuestions = null;
 
@@ -102,7 +102,7 @@ public class QuestionRepository {
         return listOfQuestions;
     }
 
-    private List<Question> getNextQuestionWhenFirstQuestionAnswered(Node customerNode) {
+    private List<Question> getNextQuestionWhenFirstQuestionAnswered(Node customerNode) throws Exception {
         List<Question> listOfQuestions;
         Traverser traverse = customerNode.traverse(Traverser.Order.BREADTH_FIRST,
                 StopEvaluator.END_OF_GRAPH,
@@ -119,11 +119,11 @@ public class QuestionRepository {
                 MyRelationship.ANSWERED, Direction.OUTGOING,
                 MyRelationship.EXCLUDES, Direction.OUTGOING);
         Collection<Node> nodes = traverse.getAllNodes();
-        listOfQuestions = (List<Question>) ListHelper.convertNodesToNodeObjects(nodes);
+        listOfQuestions = ListHelper.setSpecialProperties(nodes, new Question());
         return listOfQuestions;
     }
 
-    private List<Question> getQuestionsWhereNoQuestionsAnswered(Node questionNode) {
+    private List<Question> getQuestionsWhereNoQuestionsAnswered(Node questionNode) throws Exception {
 
         Traverser traverse = questionNode.traverse(Traverser.Order.BREADTH_FIRST,
                 StopEvaluator.END_OF_GRAPH,
@@ -141,7 +141,7 @@ public class QuestionRepository {
                 MyRelationship.QUESTION, Direction.OUTGOING);
 
         Collection<Node> nodes = traverse.getAllNodes();
-        List<Question> listOfQuestions = (List<Question>) ListHelper.convertNodesToNodeObjects(nodes);
+        List<Question> listOfQuestions = ListHelper.setSpecialProperties(nodes, new Question());
         return listOfQuestions;
     }
 }

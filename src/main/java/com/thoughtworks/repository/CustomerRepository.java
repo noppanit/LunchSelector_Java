@@ -15,20 +15,20 @@ public class CustomerRepository {
 
     private DatabaseHelper db = DatabaseHelper.getInstance();
 
-    public List<Customer> getCustomers() {
+    public List<Customer> getCustomers() throws Exception {
         Node customerNode = db.getCustomerNode();
         Traverser traverse = customerNode.traverse(Traverser.Order.BREADTH_FIRST,
                 StopEvaluator.END_OF_GRAPH,
                 ReturnableEvaluator.ALL_BUT_START_NODE,
                 MyRelationship.CUSTOMER, Direction.OUTGOING);
 
-        Collection<Node> allNodes = traverse.getAllNodes();
-        List<Customer> allCustomers = (List<Customer>) ListHelper.convertNodesToNodeObjects(allNodes);
+        Collection<Node> nodes = traverse.getAllNodes();
+        List<Customer> allCustomers = ListHelper.setSpecialProperties(nodes, new Customer());
 
         return allCustomers;
     }
 
-    public List<Menu> getPersonalisedMenu(Node customerNode) {
+    public List<Menu> getPersonalisedMenu(Node customerNode) throws Exception {
         MenuRepository menuRepository = new MenuRepository();
         List<Menu> listOfHotOrColdDishes = menuRepository.getDishes();
         List<Menu> listOfExcludedDishes = getExcludedDishes(customerNode);
@@ -36,7 +36,7 @@ public class CustomerRepository {
         return ListHelper.substracts(listOfHotOrColdDishes, listOfExcludedDishes);
     }
 
-    private List<Menu> getExcludedDishes(Node customerNode) {
+    private List<Menu> getExcludedDishes(Node customerNode) throws Exception {
         Traverser traverser = customerNode.traverse(Traverser.Order.BREADTH_FIRST,
                 StopEvaluator.END_OF_GRAPH,
                 new ReturnableEvaluator() {
@@ -51,8 +51,8 @@ public class CustomerRepository {
                 MyRelationship.ANSWERED, Direction.OUTGOING,
                 MyRelationship.EXCLUDES, Direction.OUTGOING);
 
-        Collection<Node> allNodes = traverser.getAllNodes();
-        List<Menu> excludedDishes = (List<Menu>) ListHelper.convertNodesToNodeObjects(allNodes);
+        Collection<Node> nodes = traverser.getAllNodes();
+        List<Menu> excludedDishes = ListHelper.setSpecialProperties(nodes, new Menu());
 
         return excludedDishes;
     }
@@ -65,7 +65,7 @@ public class CustomerRepository {
 
                     @Override
                     public boolean isReturnableNode(TraversalPosition traversalPosition) {
-                        if (traversalPosition.currentNode().getProperty("name").equals(name)) {
+                        if (traversalPosition.currentNode().getProperty(DatabaseHelper.NODE_NAME).equals(name)) {
                             return true;
                         }
                         return false;

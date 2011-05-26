@@ -1,5 +1,6 @@
 package com.thoughtworks.repository;
 
+import com.thoughtworks.database.DatabaseHelper;
 import com.thoughtworks.model.Customer;
 import com.thoughtworks.model.Menu;
 import org.junit.Test;
@@ -15,7 +16,7 @@ import static org.junit.Assert.assertThat;
 public class CustomerTest extends BaseTest {
 
     @Test
-    public void shouldReturnAllCustomers() {
+    public void shouldReturnAllCustomers() throws Exception {
         CustomerRepository customerRepository = new CustomerRepository();
         List<Customer> customers = customerRepository.getCustomers();
         Collection<String> nodeNames = getNodeNames(customers);
@@ -23,7 +24,7 @@ public class CustomerTest extends BaseTest {
     }
 
     @Test
-    public void shouldReturnPersonalisedMenu() {
+    public void shouldReturnPersonalisedMenu() throws Exception {
         CustomerRepository customerRepository = new CustomerRepository();
         Node mary = customerRepository.getCustomer("Mary");
         List<Menu> dishes = customerRepository.getPersonalisedMenu(mary);
@@ -37,7 +38,7 @@ public class CustomerTest extends BaseTest {
         CustomerRepository customerRepository = new CustomerRepository();
         Node mary = customerRepository.getCustomer("Mary");
 
-        assertThat(mary.getProperty("name").toString(), is("Mary"));
+        assertThat(mary.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Mary"));
 
     }
 
