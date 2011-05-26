@@ -21,7 +21,7 @@
         <li>
             <a href="/customers/${customername}/questions/${nextQuestion.id}">
                 ${nextQuestion.name}
-            <a/>
+            </a>
         </li>
     </c:forEach>
 </ol>

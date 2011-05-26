@@ -46,12 +46,22 @@ public class CustomerController {
     {
         QuestionRepository questionRepository = new QuestionRepository();
         Node theQuestion = questionRepository.getQuestionById(Long.parseLong(questionId));
+        String questionText = theQuestion.getProperty("name").toString();
 
-        List<Answer> listOfAnswers = questionRepository.getAnswers(theQuestion.getProperty("name").toString());
+        List<Answer> listOfAnswers = questionRepository.getAnswers(questionText);
         model.addAttribute("answers",listOfAnswers);
         model.addAttribute("customername",customername);
+        model.addAttribute("questionText",questionText);
+        model.addAttribute("questionId",questionId);
 
         return "answers";
+    }
+
+    @RequestMapping(value = "/customers/{customername}/questions/{questionId}", method = RequestMethod.POST)
+    public String answerTheQuestion(@PathVariable String customername, @PathVariable String questionId, Model model)
+    {
+
+        return "customerMenu";
     }
 
     @RequestMapping(value = "/customers/menu/{customername}", method = RequestMethod.GET)
