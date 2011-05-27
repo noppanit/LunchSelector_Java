@@ -73,10 +73,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="main.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="46" selection-start="89" selection-end="89" vertical-scroll-proportion="0.09657948">
+            <state line="4" column="46" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -85,7 +85,16 @@
       <file leaf-file-name="menu.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/menu.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="47" selection-start="301" selection-end="301" vertical-scroll-proportion="-6.285714">
+            <state line="10" column="21" selection-start="242" selection-end="262" vertical-scroll-proportion="-5.714286">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="customerMenu.jsp" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="68" selection-start="442" selection-end="442" vertical-scroll-proportion="0.53781515">
               <folding />
             </state>
           </provider>
@@ -114,7 +123,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/MenuRepository.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/QuestionTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/MenuController.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/MenuTest.java" />
@@ -130,6 +138,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/menu.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/main.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp" />
       </list>
     </option>
   </component>
@@ -887,13 +896,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="49" selection-start="816" selection-end="816" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/MenuRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="47" selection-start="724" selection-end="724" vertical-scroll-proportion="0.3943662">
@@ -988,16 +990,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/menu.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="47" selection-start="301" selection-end="301" vertical-scroll-proportion="-6.285714">
+        <state line="4" column="46" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/main.css">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/menu.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="46" selection-start="89" selection-end="89" vertical-scroll-proportion="0.09657948">
+        <state line="10" column="21" selection-start="242" selection-end="262" vertical-scroll-proportion="-5.714286">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="68" selection-start="442" selection-end="442" vertical-scroll-proportion="0.53781515">
           <folding />
         </state>
       </provider>
