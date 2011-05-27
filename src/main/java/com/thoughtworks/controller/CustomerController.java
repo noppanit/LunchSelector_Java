@@ -29,7 +29,7 @@ public class CustomerController {
         CustomerRepository customerRepository = new CustomerRepository();
         List<Customer> customers = customerRepository.getCustomers();
 
-        model.addAttribute("customers",customers);
+        model.addAttribute("customers", customers);
         return "customers";
     }
 
@@ -40,7 +40,7 @@ public class CustomerController {
         Node customerNode = customerRepository.getCustomer(customername);
         List<Question> listOfNextQuestions = questionRepository.getNextQuestions(customerNode);
         model.addAttribute("nextQuestions", listOfNextQuestions);
-        model.addAttribute("customername",customername);
+        model.addAttribute("customername", customername);
 
         return "customerQuestion";
     }
@@ -50,30 +50,35 @@ public class CustomerController {
         QuestionRepository questionRepository = new QuestionRepository();
         Node theQuestion = questionRepository.getQuestionById(Long.parseLong(questionId));
         String questionText = theQuestion.getProperty(DatabaseHelper.NODE_NAME).toString();
+        String questionType = theQuestion.getProperty(DatabaseHelper.NODE_QUESTION_TYPE).toString();
 
         List<Answer> listOfAnswers = questionRepository.getAnswers(questionText);
-        model.addAttribute("answers",listOfAnswers);
-        model.addAttribute("customername",customername);
-        model.addAttribute("questionText",questionText);
-        model.addAttribute("questionId",questionId);
+        model.addAttribute("answers", listOfAnswers);
+        model.addAttribute("customername", customername);
+        model.addAttribute("questionText", questionText);
+        model.addAttribute("questionId", questionId);
+        model.addAttribute("questionType", questionType);
 
         return "answers";
     }
 
     @RequestMapping(value = "answer", method = POST)
-    public String answer(@RequestParam String answerId, @RequestParam String customername, @RequestParam String questionId, Model model) throws Exception {
+    public String answer(@RequestParam String[] answerId, @RequestParam String customername, @RequestParam String questionId, Model model) throws Exception {
         CustomerRepository customerRepository = new CustomerRepository();
         List<Answer> listOfAnswers = new ArrayList<Answer>();
-        Answer answer = new Answer();
-        answer.setId(Long.parseLong(answerId));
-        listOfAnswers.add(answer);
 
-        customerRepository.answerQuestion(customername,Long.parseLong(questionId),listOfAnswers);
+        for (String aId : answerId) {
+            Answer answer = new Answer();
+            answer.setId(Long.parseLong(aId));
+            listOfAnswers.add(answer);
+        }
+
+        customerRepository.answerQuestion(customername, Long.parseLong(questionId), listOfAnswers);
 
         Node customer = customerRepository.getCustomer(customername);
         List<Menu> customerPersonalisedMenu = customerRepository.getPersonalisedMenu(customer);
         model.addAttribute("personalisedMenus", customerPersonalisedMenu);
-        model.addAttribute("customername",customername);
+        model.addAttribute("customername", customername);
 
         return "customerMenu";
     }
@@ -84,7 +89,7 @@ public class CustomerController {
         Node customer = customerRepository.getCustomer(customername);
         List<Menu> customerPersonalisedMenu = customerRepository.getPersonalisedMenu(customer);
         model.addAttribute("personalisedMenus", customerPersonalisedMenu);
-        model.addAttribute("customername",customername);
+        model.addAttribute("customername", customername);
 
         return "customerMenu";
     }

@@ -22,19 +22,29 @@
 <h3>
     ${questionText}
 </h3>
+
 <form name="customerForm" id="customerForm" action="/customers/answer" method="POST">
-    <input type="hidden" name="customername" id="customername" value="${customername}" />
-    <input type="hidden" name="questionId" id="questionId" value="${questionId}" />
+    <input type="hidden" name="customername" id="customername" value="${customername}"/>
+    <input type="hidden" name="questionId" id="questionId" value="${questionId}"/>
     <ol>
-        <c:forEach var="answer" items="${answers}">
-            <li>
-
-                <input type="radio" value="${answer.id}" name="answerId" id="answerId">${answer.name}</input>
-
-            </li>
-        </c:forEach>
+        <c:choose>
+            <c:when test="${questionType == 'single'}">
+                <c:forEach var="answer" items="${answers}">
+                    <li>
+                        <input type="radio" value="${answer.id}" name="answerId" id="answerId">${answer.name}</input>
+                    </li>
+                </c:forEach>
+            </c:when>
+            <c:when test="${questionType == 'multiple'}">
+                <c:forEach var="answer" items="${answers}">
+                    <li>
+                        <input type="checkbox" value="${answer.id}" name="answerId" id="answerId">${answer.name}</input>
+                    </li>
+                </c:forEach>
+            </c:when>
+        </c:choose>
     </ol>
-    <input type="submit" />
+    <input type="submit"/>
 </form>
 </body>
 </html>

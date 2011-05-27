@@ -34,6 +34,17 @@ public class CustomerTest extends BaseTest {
     }
 
     @Test
+    public void shouldReturnPersonalisedMenuFromCustomerNotAnswerQuestion() throws Exception
+    {
+        CustomerRepository customerRepository = new CustomerRepository();
+        Node mary = customerRepository.getCustomer("Joy");
+        List<Menu> dishes = customerRepository.getPersonalisedMenu(mary);
+        Collection<String> nodeNames = getNodeNames(dishes);
+
+        assertThat(nodeNames, containsOnlyNodeNames("tuna salad","nut salad","grilled chicken potsu","fried rice","pasta salad","sandwiches"));
+    }
+
+    @Test
     public void shouldReturnACustomerByName() {
         CustomerRepository customerRepository = new CustomerRepository();
         Node mary = customerRepository.getCustomer("Mary");

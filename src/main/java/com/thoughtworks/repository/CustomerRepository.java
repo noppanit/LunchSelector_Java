@@ -9,6 +9,7 @@ import com.thoughtworks.util.ListHelper;
 import org.neo4j.graphdb.*;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 public class CustomerRepository {
@@ -43,7 +44,8 @@ public class CustomerRepository {
                     @Override
                     public boolean isReturnableNode(TraversalPosition traversalPosition) {
                         if (traversalPosition.lastRelationshipTraversed() != null &&
-                                traversalPosition.lastRelationshipTraversed().isType(MyRelationship.EXCLUDES))
+                                traversalPosition.lastRelationshipTraversed().isType(MyRelationship.EXCLUDES) &&
+                                traversalPosition.currentNode().hasRelationship(MyRelationship.DISH, Direction.INCOMING) )
                             return true;
                         return false;
                     }

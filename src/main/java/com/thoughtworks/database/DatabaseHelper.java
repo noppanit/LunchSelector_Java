@@ -12,6 +12,7 @@ import java.io.File;
 
 public class DatabaseHelper {
     public static final String NODE_NAME = "Name";
+    public static final String NODE_QUESTION_TYPE = "QuestionType";
 
     private static DatabaseHelper db = getInstance();
     private GraphDatabaseService graphDb = new EmbeddedGraphDatabase(Constant.PROJECT_PATH + "/src/main/resource/db");
@@ -19,6 +20,7 @@ public class DatabaseHelper {
     private Index<Node> customersIndex = null;
     private Index<Node> menuIndex = null;
     private Index<Node> questionIndex = null;
+
 
 
     public static DatabaseHelper getInstance() {
