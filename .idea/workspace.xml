@@ -73,28 +73,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="QuestionTest.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/QuestionTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="16" selection-start="2999" selection-end="2999" vertical-scroll-proportion="0.3802817">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DatabaseHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="35" selection-start="4821" selection-end="4821" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QuestionRepository.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="QuestionRepository.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/QuestionRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="48" selection-start="3820" selection-end="3820" vertical-scroll-proportion="0.0">
+            <state line="84" column="46" selection-start="3163" selection-end="3163" vertical-scroll-proportion="0.17907445">
               <folding />
             </state>
           </provider>
@@ -1030,13 +1012,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="22" selection-start="1067" selection-end="1067" vertical-scroll-proportion="0.33199194">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="40" column="60" selection-start="1600" selection-end="1600" vertical-scroll-proportion="0.71900827">
@@ -1044,23 +1019,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/QuestionRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/QuestionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="48" selection-start="3820" selection-end="3820" vertical-scroll-proportion="0.0">
+        <state line="28" column="50" selection-start="1067" selection-end="1067" vertical-scroll-proportion="-0.76257545">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="35" selection-start="4821" selection-end="4821" vertical-scroll-proportion="0.0">
+        <state line="111" column="61" selection-start="4237" selection-end="4237" vertical-scroll-proportion="0.12396694">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/QuestionTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="16" selection-start="2999" selection-end="2999" vertical-scroll-proportion="0.3802817">
+        <state line="31" column="22" selection-start="1067" selection-end="1067" vertical-scroll-proportion="-1.3098592">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/QuestionRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="46" selection-start="3163" selection-end="3163" vertical-scroll-proportion="0.17907445">
           <folding />
         </state>
       </provider>
