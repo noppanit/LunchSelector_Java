@@ -14,9 +14,9 @@ import java.util.List;
 
 public class ListHelper {
 
-    public static <T> List<T> substracts(List<T> supersetNode, List<T> subsetNode) {
+    public static <T> List<T> substracts(List<T> superSetNode, List<T> subsetNode) {
 
-        for (Iterator<T> it = supersetNode.iterator(); it.hasNext();) {
+        for (Iterator<T> it = superSetNode.iterator(); it.hasNext();) {
 
             NodeObject superNode = (NodeObject) it.next();
             for (Iterator<T> it1 = subsetNode.iterator(); it1.hasNext();) {
@@ -28,7 +28,7 @@ public class ListHelper {
             }
         }
 
-        return supersetNode;
+        return superSetNode;
     }
 
     public static <T> List<T> setSpecialProperties(Collection<Node> collectionNodes, T t) throws Exception {
