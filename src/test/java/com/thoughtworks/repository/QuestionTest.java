@@ -21,8 +21,11 @@ public class QuestionTest extends BaseTest {
         List<Question> listOfQuestions = questionRepository.getQuestions();
         Collection<String> nodeNames = getNodeNames(listOfQuestions);
 
-        assertThat(listOfQuestions.size(), is(3));
-        assertThat(nodeNames, containsOnlyNodeNames("Can you eat all food types?", "Do you want hot or cold food?", "What allergies do you have?"));
+        assertThat(listOfQuestions.size(), is(4));
+        assertThat(nodeNames, containsOnlyNodeNames("Are you a vegetarian?",
+                "Can you eat all food types?",
+                "Do you want hot or cold food?",
+                "What allergies do you have?"));
 
     }
 
@@ -46,8 +49,9 @@ public class QuestionTest extends BaseTest {
 
         List<Question> listOfQuestions = questionRepository.getNextQuestions(customerNode);
         Collection<String> nodeNames = getNodeNames(listOfQuestions);
-        assertThat(listOfQuestions.size(), is(2));
-        assertThat(nodeNames, containsOnlyNodeNames("Do you want hot or cold food?", "Can you eat all food types?"));
+        assertThat(listOfQuestions.size(), is(3));
+        assertThat(nodeNames, containsOnlyNodeNames("Are you a vegetarian?",
+                "Do you want hot or cold food?", "Can you eat all food types?"));
     }
 
     @Test
@@ -58,8 +62,9 @@ public class QuestionTest extends BaseTest {
 
         List<Question> listOfQuestions = questionRepository.getNextQuestions(customerNode);
         Collection<String> nodeNames = getNodeNames(listOfQuestions);
-        assertThat(listOfQuestions.size(), is(1));
-        assertThat(nodeNames, containsOnlyNodeNames("Do you want hot or cold food?"));
+        assertThat(listOfQuestions.size(), is(2));
+        assertThat(nodeNames, containsOnlyNodeNames("Are you a vegetarian?",
+                "Do you want hot or cold food?"));
     }
 
     @Test

@@ -85,17 +85,23 @@ public class DatabaseHelper {
             Node john = createCustomer("John");
 
             Node hotOrCold = createQuestion("Do you want hot or cold food?");
-            hotOrCold.setProperty("QuestionType", "single");
+            hotOrCold.setProperty(NODE_QUESTION_TYPE, "single");
             Node canYouEat = createQuestion("Can you eat all food types?");
-            canYouEat.setProperty("QuestionType", "single");
+            canYouEat.setProperty(NODE_QUESTION_TYPE, "single");
+
+            Node vegetarian = createQuestion("Are you a vegetarian?");
+            vegetarian.setProperty(NODE_QUESTION_TYPE, "single");
 
             Node yes = addAnswerToQuestion(canYouEat, "yes");
             Node no = addAnswerToQuestion(canYouEat, "no");
 
+            Node veganYes = addAnswerToQuestion(vegetarian, "yes");
+            Node veganNo = addAnswerToQuestion(vegetarian, "no");
+
             joy.createRelationshipTo(yes, MyRelationship.ANSWERED);
 
             Node allergies = createQuestion("What allergies do you have?");
-            allergies.setProperty("QuestionType", "multiple");
+            allergies.setProperty(NODE_QUESTION_TYPE, "multiple");
 
             yes.createRelationshipTo(allergies, MyRelationship.EXCLUDES);
             no.createRelationshipTo(allergies, MyRelationship.REQUIRES);
@@ -110,6 +116,15 @@ public class DatabaseHelper {
             menu.createRelationshipTo(rice, MyRelationship.DISH);
 
             Node sandwiches = createNode(NODE_NAME, "sandwiches");
+
+            veganYes.createRelationshipTo(potsu, MyRelationship.EXCLUDES);
+            veganYes.createRelationshipTo(rice, MyRelationship.EXCLUDES);
+            veganYes.createRelationshipTo(tunaSalad, MyRelationship.EXCLUDES);
+            veganYes.createRelationshipTo(sandwiches, MyRelationship.EXCLUDES);
+
+            veganNo.createRelationshipTo(pastaSalad, MyRelationship.EXCLUDES);
+            veganNo.createRelationshipTo(nutSalad,MyRelationship.EXCLUDES);
+
 
             hotFood.createRelationshipTo(sandwiches, MyRelationship.EXCLUDES);
             hotFood.createRelationshipTo(tunaSalad, MyRelationship.EXCLUDES);

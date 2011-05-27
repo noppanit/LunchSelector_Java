@@ -73,28 +73,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="customerForm.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerForm.jsp">
+      <file leaf-file-name="QuestionTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/QuestionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="32" selection-start="298" selection-end="298" vertical-scroll-proportion="0.25210086">
+            <state line="66" column="16" selection-start="2999" selection-end="2999" vertical-scroll-proportion="0.3802817">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="customerMenu.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp">
+      <file leaf-file-name="DatabaseHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="47" selection-start="1035" selection-end="1035" vertical-scroll-proportion="-16.0">
+            <state line="123" column="35" selection-start="4821" selection-end="4821" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CustomerController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java">
+      <file leaf-file-name="QuestionRepository.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/QuestionRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="46" selection-start="682" selection-end="682" vertical-scroll-proportion="0.0">
+            <state line="101" column="48" selection-start="3820" selection-end="3820" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -114,7 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/MenuTest.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/answers.jsp" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/util/ListHelper.java" />
@@ -123,13 +122,14 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/servlet-context.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/menu.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customers.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/main.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerForm.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp" />
+        <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/QuestionTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java" />
       </list>
     </option>
   </component>
@@ -546,6 +546,9 @@
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/img" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/lib" />
     </key>
+    <key name="IntroduceConstantDialog.RECENTS_KEY">
+      <recent name="com.thoughtworks.database.DatabaseHelper" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.thoughtworks.model" />
       <recent name="com.thoughtworks.repository" />
@@ -553,35 +556,7 @@
       <recent name="com.thoughtworks.database" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CustomerTest.shouldReturnPersonalisedMenuFromCustomerNotAnswerQuestion">
-    <configuration default="false" name="QuestionTest.shouldReturnQuestionById" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false">
-        <pattern>
-          <option name="PATTERN" value="com.thoughtworks.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="LunchSelector" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.thoughtworks.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.thoughtworks.repository.QuestionTest" />
-      <option name="METHOD_NAME" value="shouldReturnQuestionById" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.QuestionTest.shouldReturnRelevantQuestionsWhenFirstQuestionAnswered">
     <configuration default="false" name="ListHelperTest.shouldSetAllProperties" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false">
         <pattern>
@@ -706,6 +681,34 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
+    <configuration default="false" name="QuestionTest.shouldReturnRelevantQuestionsWhenFirstQuestionAnswered" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false">
+        <pattern>
+          <option name="PATTERN" value="com.thoughtworks.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="LunchSelector" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.thoughtworks.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.thoughtworks.repository.QuestionTest" />
+      <option name="METHOD_NAME" value="shouldReturnRelevantQuestionsWhenFirstQuestionAnswered" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -791,11 +794,11 @@
       </method>
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.QuestionTest.shouldReturnQuestionById" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.ListHelperTest.shouldSetAllProperties" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.QuestionTest.shouldReturnAllQuestions" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CustomerTest.shouldReturnPersonalisedMenu" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.CustomerTest.shouldReturnPersonalisedMenuFromCustomerNotAnswerQuestion" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.ListHelperTest.shouldSetAllProperties" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.QuestionTest.shouldReturnAllQuestions" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.CustomerTest.shouldReturnPersonalisedMenu" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.CustomerTest.shouldReturnPersonalisedMenuFromCustomerNotAnswerQuestion" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.QuestionTest.shouldReturnRelevantQuestionsWhenFirstQuestionAnswered" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -964,13 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="101" selection-start="778" selection-end="778" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customers.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="47" selection-start="403" selection-end="403" vertical-scroll-proportion="0.5263158">
@@ -992,13 +988,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="30" selection-start="2560" selection-end="2574" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="13" selection-start="177" selection-end="177" vertical-scroll-proportion="0.12578617">
@@ -1013,13 +1002,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="60" selection-start="6124" selection-end="6124" vertical-scroll-proportion="0.42857143">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="14" selection-start="239" selection-end="252" vertical-scroll-proportion="0.5070422">
@@ -1027,23 +1009,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerForm.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="46" selection-start="682" selection-end="682" vertical-scroll-proportion="0.0">
+        <state line="12" column="48" selection-start="336" selection-end="336" vertical-scroll-proportion="0.30252102">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="47" selection-start="1035" selection-end="1035" vertical-scroll-proportion="-16.0">
+        <state line="28" column="47" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.7058824">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerForm.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="32" selection-start="298" selection-end="298" vertical-scroll-proportion="0.25210086">
+        <state line="16" column="46" selection-start="682" selection-end="682" vertical-scroll-proportion="0.3966942">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="22" selection-start="1067" selection-end="1067" vertical-scroll-proportion="0.33199194">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="60" selection-start="1600" selection-end="1600" vertical-scroll-proportion="0.71900827">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/QuestionRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="48" selection-start="3820" selection-end="3820" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="35" selection-start="4821" selection-end="4821" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/QuestionTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="16" selection-start="2999" selection-end="2999" vertical-scroll-proportion="0.3802817">
           <folding />
         </state>
       </provider>
