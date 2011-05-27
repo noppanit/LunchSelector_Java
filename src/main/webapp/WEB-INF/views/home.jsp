@@ -20,7 +20,7 @@
     </a>
 </h2>
 <h2>
-    <a href="startprocess">
+    <a href="customers/add">
         Start a process
     </a>
 </h2>

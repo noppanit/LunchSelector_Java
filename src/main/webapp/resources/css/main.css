@@ -10,17 +10,21 @@ body {
     margin: 10px
 }
 
-#menu_food{
-    float:left;
+#menu_food {
+    float: left;
     margin: 10px;
 }
 
-#dish_name{
+#dish_name {
     text-align: center;
 }
 
+#customer_form {
+    margin: 10px
+}
+
 .shadow {
-  -moz-box-shadow: 5px 5px 5px #ccc;
-  -webkit-box-shadow: 5px 5px 5px #ccc;
-  box-shadow: 5px 5px 5px #ccc;
+    -moz-box-shadow: 5px 5px 5px #ccc;
+    -webkit-box-shadow: 5px 5px 5px #ccc;
+    box-shadow: 5px 5px 5px #ccc;
 }

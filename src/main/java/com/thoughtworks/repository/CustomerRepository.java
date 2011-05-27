@@ -59,6 +59,21 @@ public class CustomerRepository {
         return excludedDishes;
     }
 
+    public void createCustomer(String name)
+    {
+        GraphDatabaseService graphDb = db.getDatabaseService();
+        Transaction tx = graphDb.beginTx();
+
+        try {
+            db.createCustomer(name);
+            tx.success();
+        } catch (Exception ex) {
+            tx.failure();
+        } finally {
+            tx.finish();
+        }
+    }
+
     public Node getCustomer(final String name) {
         Node customers = db.getCustomerNode();
         Traverser traverser = customers.traverse(Traverser.Order.BREADTH_FIRST,
