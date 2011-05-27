@@ -9,6 +9,9 @@
 
 <div id="customer_form">
     <h1>Hi! Are you hungry?</h1>
+    <h2>
+        <a href="/">Home</a>
+    </h2>
     <form action="create" method="POST">
         <fieldset>
             <legend>Please enter your name</legend>

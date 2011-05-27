@@ -7,7 +7,7 @@
 </head>
 <body>
 <div id="menu_body">
-    <h1>Hi! This is all the menu we suggest you.</h1>
+    <h1>Hi! This is all the menu we suggest you. ${customername}</h1>
 
     <h2>
         <a href="/">Home</a>
