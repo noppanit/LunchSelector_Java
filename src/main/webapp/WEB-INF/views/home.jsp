@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/main.css" />"/>
 </head>
 <body>
 <h1>Hunger Strikes!</h1>
