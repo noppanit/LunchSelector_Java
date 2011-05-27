@@ -21,8 +21,6 @@ public class DatabaseHelper {
     private Index<Node> menuIndex = null;
     private Index<Node> questionIndex = null;
 
-
-
     public static DatabaseHelper getInstance() {
         if (db == null) {
             File dbDir = new File(Constant.PROJECT_PATH + "/src/main/resource/db");
@@ -82,23 +80,24 @@ public class DatabaseHelper {
             menu.createRelationshipTo(pastaSalad, MyRelationship.DISH);
             menu.createRelationshipTo(nutSalad, MyRelationship.DISH);
 
-            Node mary = createCustomer(customer, "Mary");
-            Node joy = createCustomer(customer, "Joy");
-            Node john = createCustomer(customer, "John");
+            Node mary = createCustomer("Mary");
+            Node joy = createCustomer("Joy");
+            Node john = createCustomer("John");
 
-            Node hotOrCold = addQuestion("Do you want hot or cold food?", question);
-            hotOrCold.setProperty("QuestionType","single");
-            Node canYouEat = addQuestion("Can you eat all food types?", question);
-            canYouEat.setProperty("QuestionType","single");
+            Node hotOrCold = createQuestion("Do you want hot or cold food?");
+            hotOrCold.setProperty("QuestionType", "single");
+            Node canYouEat = createQuestion("Can you eat all food types?");
+            canYouEat.setProperty("QuestionType", "single");
 
             Node yes = addAnswerToQuestion(canYouEat, "yes");
             Node no = addAnswerToQuestion(canYouEat, "no");
 
             joy.createRelationshipTo(yes, MyRelationship.ANSWERED);
 
-            Node allergies = addQuestion("What allergies do you have?", question);
-            allergies.setProperty("QuestionType","multiple");
+            Node allergies = createQuestion("What allergies do you have?");
+            allergies.setProperty("QuestionType", "multiple");
 
+            yes.createRelationshipTo(allergies, MyRelationship.EXCLUDES);
             no.createRelationshipTo(allergies, MyRelationship.REQUIRES);
 
             Node hotFood = addAnswerToQuestion(hotOrCold, "hot");
@@ -133,12 +132,13 @@ public class DatabaseHelper {
             mary.createRelationshipTo(fish, MyRelationship.ANSWERED);
             mary.createRelationshipTo(allergies, MyRelationship.COMPLETED);
             mary.createRelationshipTo(hotOrCold, MyRelationship.COMPLETED);
-
+            mary.createRelationshipTo(no,MyRelationship.ANSWERED);
+            mary.createRelationshipTo(canYouEat,MyRelationship.COMPLETED);
             mary.createRelationshipTo(coldFood, MyRelationship.ANSWERED);
 
             joy.createRelationshipTo(canYouEat, MyRelationship.COMPLETED);
 
-            yes.createRelationshipTo(allergies, MyRelationship.EXCLUDES);
+
 
             tx.success();
         } catch (Exception ex) {
@@ -149,10 +149,17 @@ public class DatabaseHelper {
 
     }
 
-    private Node createCustomer(Node customer, String customerName) {
-        Node customerNode = createNode(NODE_NAME, customerName);
+    public Node createCustomer(String customerName) {
+        Node customer = getCustomerNode();
+        Node customerNode = createNode(DatabaseHelper.NODE_NAME, customerName);
         customer.createRelationshipTo(customerNode, MyRelationship.CUSTOMER);
         return customerNode;
+    }
+
+    public Node createNode(String nodeName, String nodeValue) {
+        Node node = graphDb.createNode();
+        node.setProperty(nodeName, nodeValue);
+        return node;
     }
 
     private Node addAnswerToQuestion(Node question, String answerString) {
@@ -161,7 +168,8 @@ public class DatabaseHelper {
         return answer;
     }
 
-    private Node addQuestion(String questionString, Node questionNode) {
+    private Node createQuestion(String questionString) {
+        Node questionNode = getQuestionsNode();
         Node question = createNode(NODE_NAME, questionString);
         questionNode.createRelationshipTo(question, MyRelationship.QUESTION);
         return question;
@@ -169,12 +177,6 @@ public class DatabaseHelper {
 
     private void relateToRoot(Node rootNode, Node node) {
         rootNode.createRelationshipTo(node, MyRelationship.CONTAINS);
-    }
-
-    private Node createNode(String nodeName, String nodeValue) {
-        Node node = graphDb.createNode();
-        node.setProperty(nodeName, nodeValue);
-        return node;
     }
 
     private Node getRoot() {
@@ -195,4 +197,6 @@ public class DatabaseHelper {
         // The directory is now empty so delete it
         return dir.delete();
     }
+
+
 }

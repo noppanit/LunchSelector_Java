@@ -45,7 +45,7 @@ public class CustomerRepository {
                     public boolean isReturnableNode(TraversalPosition traversalPosition) {
                         if (traversalPosition.lastRelationshipTraversed() != null &&
                                 traversalPosition.lastRelationshipTraversed().isType(MyRelationship.EXCLUDES) &&
-                                traversalPosition.currentNode().hasRelationship(MyRelationship.DISH, Direction.INCOMING) )
+                                traversalPosition.currentNode().hasRelationship(MyRelationship.DISH, Direction.INCOMING))
                             return true;
                         return false;
                     }

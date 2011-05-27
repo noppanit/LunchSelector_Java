@@ -5,7 +5,7 @@
     <title>Menu</title>
 </head>
 <body>
-<h1>Hi! This is all the menu.</h1>
+<h1>Hi! All.</h1>
 <h2>
     <a href="/">
         Home
