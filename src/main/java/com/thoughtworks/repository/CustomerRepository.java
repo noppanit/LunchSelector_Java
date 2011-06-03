@@ -1,5 +1,6 @@
 package com.thoughtworks.repository;
 
+import com.thoughtworks.constant.Constant;
 import com.thoughtworks.database.DatabaseHelper;
 import com.thoughtworks.model.Answer;
 import com.thoughtworks.model.Customer;
@@ -8,9 +9,8 @@ import com.thoughtworks.relationship.MyRelationship;
 import com.thoughtworks.util.ListHelper;
 import org.neo4j.graphdb.*;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.text.ParseException;
+import java.util.*;
 
 public class CustomerRepository {
 
@@ -59,13 +59,13 @@ public class CustomerRepository {
         return excludedDishes;
     }
 
-    public void createCustomer(String name)
-    {
+    public void createCustomer(String name, String dob) {
         GraphDatabaseService graphDb = db.getDatabaseService();
         Transaction tx = graphDb.beginTx();
 
         try {
-            db.createCustomer(name);
+            Node customer = db.createCustomer(name);
+            customer.setProperty(DatabaseHelper.NODE_DOB, dob);
             tx.success();
         } catch (Exception ex) {
             tx.failure();
@@ -117,5 +117,26 @@ public class CustomerRepository {
         } finally {
             tx.finish();
         }
+    }
+
+    public Calendar getCustomerAge(Node customer) throws ParseException {
+        String customerDOB = (String) customer.getProperty(DatabaseHelper.NODE_DOB);
+
+        Date customerDate = Constant.SIMPLE_DATE_FORMAT.parse(customerDOB);
+        Calendar customerAge = Calendar.getInstance();
+        customerAge.setTime(customerDate);
+
+        return customerAge;
+    }
+
+    public int calculateAge(Calendar customerAge) {
+        int nowYear = Calendar.getInstance().get(Calendar.YEAR);
+        return nowYear - customerAge.get(Calendar.YEAR);
+    }
+
+    public List<Customer> getCustomerBasedOnRule(int age) {
+
+
+        return Collections.EMPTY_LIST;
     }
 }

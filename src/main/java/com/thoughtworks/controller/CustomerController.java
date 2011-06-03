@@ -44,9 +44,9 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "create", method = POST)
-    public String create(@RequestParam String name) {
+    public String create(@RequestParam String name, @RequestParam String dob) {
 
-        customerRepository.createCustomer(name);
+        customerRepository.createCustomer(name, dob);
 
         return "redirect:/customers";
     }

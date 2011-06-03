@@ -1,12 +1,16 @@
 package com.thoughtworks.repository;
 
+import com.thoughtworks.constant.Constant;
 import com.thoughtworks.database.DatabaseHelper;
 import com.thoughtworks.model.Customer;
 import com.thoughtworks.model.Menu;
 import org.junit.Test;
 import org.neo4j.graphdb.Node;
 
+import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 import static com.thoughtworks.matcher.ContainsOnlySpecificNameOfNodes.containsOnlyNodeNames;
@@ -30,18 +34,17 @@ public class CustomerTest extends BaseTest {
         List<Menu> dishes = customerRepository.getPersonalisedMenu(mary);
         Collection<String> nodeNames = getNodeNames(dishes);
 
-        assertThat(nodeNames, containsOnlyNodeNames("pasta salad","sandwiches"));
+        assertThat(nodeNames, containsOnlyNodeNames("pasta salad", "sandwiches"));
     }
 
     @Test
-    public void shouldReturnPersonalisedMenuFromCustomerNotAnswerQuestion() throws Exception
-    {
+    public void shouldReturnPersonalisedMenuFromCustomerNotAnswerQuestion() throws Exception {
         CustomerRepository customerRepository = new CustomerRepository();
         Node mary = customerRepository.getCustomer("Joy");
         List<Menu> dishes = customerRepository.getPersonalisedMenu(mary);
         Collection<String> nodeNames = getNodeNames(dishes);
 
-        assertThat(nodeNames, containsOnlyNodeNames("tuna salad","nut salad","grilled chicken potsu","fried rice","pasta salad","sandwiches"));
+        assertThat(nodeNames, containsOnlyNodeNames("tuna salad", "nut salad", "grilled chicken potsu", "fried rice", "pasta salad", "sandwiches"));
     }
 
     @Test
@@ -50,6 +53,30 @@ public class CustomerTest extends BaseTest {
         Node mary = customerRepository.getCustomer("Mary");
 
         assertThat(mary.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Mary"));
+
+    }
+
+    @Test
+    public void shouldCalculateCustomerAge() throws ParseException {
+        CustomerRepository customerRepository = new CustomerRepository();
+
+        Calendar calendarInstance = Calendar.getInstance();
+        calendarInstance.add(Calendar.YEAR, -10);
+
+        String stringDate = Constant.SIMPLE_DATE_FORMAT.format(calendarInstance.getTime());
+
+        customerRepository.createCustomer("Jo", stringDate);
+
+        Node jo = customerRepository.getCustomer("Jo");
+        Calendar customerAge = customerRepository.getCustomerAge(jo);
+
+        int age = customerRepository.calculateAge(customerAge);
+
+        assertThat(age, is(10));
+    }
+
+    @Test
+    public void shouldReturnAgeCategoryBasedOnRule() {
 
     }
 

@@ -4,6 +4,7 @@ import com.thoughtworks.constant.Constant;
 import com.thoughtworks.relationship.MyRelationship;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
+import org.neo4j.graphdb.Relationship;
 import org.neo4j.graphdb.Transaction;
 import org.neo4j.graphdb.index.Index;
 import org.neo4j.kernel.EmbeddedGraphDatabase;
@@ -16,6 +17,13 @@ public class DatabaseHelper {
     public static final String NODE_PRICE_CHILD = "Child";
     public static final String NODE_PRICE_DEFAULT = "Regular";
     public static final String NODE_PRICE_PENSIONER = "Pensioner";
+
+    public static final String NODE_DOB = "Dob";
+
+    public static final String NODE_THRESHOLD = "Threshold";
+
+    public static final String NODE_FROM = "From";
+    public static final String NODE_TO = "To";
 
 
     private static DatabaseHelper db = getInstance();
@@ -63,11 +71,31 @@ public class DatabaseHelper {
             menuIndex = graphDb.index().forNodes("menu");
             questionIndex = graphDb.index().forNodes("questions");
 
+
             Node rootNode = getRoot();
             Node customer = createNode(NODE_NAME, "Customers");
             Node question = createNode(NODE_NAME, "Questions");
 
             Node menu = createNode(NODE_NAME, "Menu");
+            Node rules = createNode(NODE_NAME,"Rules");
+
+            Node priceDependsAgeRule  = createNode(NODE_NAME, "Price depends on age");
+            rules.createRelationshipTo(priceDependsAgeRule, MyRelationship.RULE);
+
+            Node child = createNode(NODE_NAME, "Child");
+            Relationship childRel = priceDependsAgeRule.createRelationshipTo(child, MyRelationship.LESS_THAN);
+            childRel.setProperty(NODE_THRESHOLD, 12);
+
+            Node pensioner = createNode(NODE_NAME, "Pensioner");
+            Relationship pensionerRel = priceDependsAgeRule.createRelationshipTo(pensioner, MyRelationship.GREATER_THAN);
+            pensionerRel.setProperty(NODE_THRESHOLD, 65);
+
+            Node adult = createNode(NODE_NAME, "Adult");
+            priceDependsAgeRule.createRelationshipTo(adult, MyRelationship.UNKNOWN_AGE);
+            Relationship adultRel = priceDependsAgeRule.createRelationshipTo(adult, MyRelationship.BETWEEN);
+            adultRel.setProperty(NODE_FROM, 12);
+            adultRel.setProperty(NODE_TO, 65);
+
             menuIndex.add(menu, NODE_NAME, "Menu");
             customersIndex.add(customer, NODE_NAME, "Customers");
             questionIndex.add(question, NODE_NAME, "Questions");
@@ -75,6 +103,7 @@ public class DatabaseHelper {
             relateToRoot(rootNode, customer);
             relateToRoot(rootNode, question);
             relateToRoot(rootNode, menu);
+            relateToRoot(rootNode, rules);
 
             Node tunaSalad = createNode(NODE_NAME, "tuna salad");
             setPricesForDish(tunaSalad, "4", "10", "6");
@@ -88,6 +117,7 @@ public class DatabaseHelper {
             menu.createRelationshipTo(nutSalad, MyRelationship.DISH);
 
             Node mary = createCustomer("Mary");
+            mary.setProperty(NODE_DOB, "01/01/90");
             Node joy = createCustomer("Joy");
             Node john = createCustomer("John");
 

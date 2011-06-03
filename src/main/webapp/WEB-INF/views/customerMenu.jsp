@@ -42,7 +42,6 @@
                 </c:choose>
             </div>
             <div id="dish_name">${personalisedMenu.name}</div>
-            <div id="">${personalisedMenu.childPrice}</div>
         </div>
     </c:forEach>
 </div>

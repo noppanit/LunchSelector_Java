@@ -17,6 +17,7 @@
             <legend>Please enter your name</legend>
             <ul>
                 <li>Name: <input type="input" name="name" id="name" /></li>
+                <li>Date of Birth: <input type="input" name="dob" id="dob" /></li>
             </ul>
         </fieldset>
         <input type="submit"/>
