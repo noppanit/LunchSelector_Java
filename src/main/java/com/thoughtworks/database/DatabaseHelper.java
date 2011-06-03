@@ -13,6 +13,10 @@ import java.io.File;
 public class DatabaseHelper {
     public static final String NODE_NAME = "Name";
     public static final String NODE_QUESTION_TYPE = "QuestionType";
+    public static final String NODE_PRICE_CHILD = "Child";
+    public static final String NODE_PRICE_DEFAULT = "Regular";
+    public static final String NODE_PRICE_PENSIONER = "Pensioner";
+
 
     private static DatabaseHelper db = getInstance();
     private GraphDatabaseService graphDb = new EmbeddedGraphDatabase(Constant.PROJECT_PATH + "/src/main/resource/db");
@@ -73,8 +77,11 @@ public class DatabaseHelper {
             relateToRoot(rootNode, menu);
 
             Node tunaSalad = createNode(NODE_NAME, "tuna salad");
+            setPricesForDish(tunaSalad, "4", "10", "6");
             Node pastaSalad = createNode(NODE_NAME, "pasta salad");
+            setPricesForDish(pastaSalad, "5", "11", "7");
             Node nutSalad = createNode(NODE_NAME, "nut salad");
+            setPricesForDish(nutSalad, "6", "12", "8");
 
             menu.createRelationshipTo(tunaSalad, MyRelationship.DISH);
             menu.createRelationshipTo(pastaSalad, MyRelationship.DISH);
@@ -110,12 +117,15 @@ public class DatabaseHelper {
             Node coldFood = addAnswerToQuestion(hotOrCold, "cold");
 
             Node potsu = createNode(NODE_NAME, "grilled chicken potsu");
+            setPricesForDish(potsu, "4", "10", "6");
             Node rice = createNode(NODE_NAME, "fried rice");
+            setPricesForDish(rice, "5", "11", "7");
 
             menu.createRelationshipTo(potsu, MyRelationship.DISH);
             menu.createRelationshipTo(rice, MyRelationship.DISH);
 
             Node sandwiches = createNode(NODE_NAME, "sandwiches");
+            setPricesForDish(sandwiches, "5", "11", "7");
 
             veganYes.createRelationshipTo(potsu, MyRelationship.EXCLUDES);
             veganYes.createRelationshipTo(rice, MyRelationship.EXCLUDES);
@@ -123,7 +133,7 @@ public class DatabaseHelper {
             veganYes.createRelationshipTo(sandwiches, MyRelationship.EXCLUDES);
 
             veganNo.createRelationshipTo(pastaSalad, MyRelationship.EXCLUDES);
-            veganNo.createRelationshipTo(nutSalad,MyRelationship.EXCLUDES);
+            veganNo.createRelationshipTo(nutSalad, MyRelationship.EXCLUDES);
 
 
             hotFood.createRelationshipTo(sandwiches, MyRelationship.EXCLUDES);
@@ -147,12 +157,11 @@ public class DatabaseHelper {
             mary.createRelationshipTo(fish, MyRelationship.ANSWERED);
             mary.createRelationshipTo(allergies, MyRelationship.COMPLETED);
             mary.createRelationshipTo(hotOrCold, MyRelationship.COMPLETED);
-            mary.createRelationshipTo(no,MyRelationship.ANSWERED);
-            mary.createRelationshipTo(canYouEat,MyRelationship.COMPLETED);
+            mary.createRelationshipTo(no, MyRelationship.ANSWERED);
+            mary.createRelationshipTo(canYouEat, MyRelationship.COMPLETED);
             mary.createRelationshipTo(coldFood, MyRelationship.ANSWERED);
 
             joy.createRelationshipTo(canYouEat, MyRelationship.COMPLETED);
-
 
 
             tx.success();
@@ -162,6 +171,12 @@ public class DatabaseHelper {
             tx.finish();
         }
 
+    }
+
+    private void setPricesForDish(Node dish, String child, String regular, String pensioner) {
+        dish.setProperty(NODE_PRICE_CHILD, child);
+        dish.setProperty(NODE_PRICE_DEFAULT, regular);
+        dish.setProperty(NODE_PRICE_PENSIONER, pensioner);
     }
 
     public Node createCustomer(String customerName) {

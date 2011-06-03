@@ -39,6 +39,7 @@
                 </c:choose>
             </div>
             <div id="dish_name">${dish.name}</div>
+            <div id="">Regular Price:&#163;${dish.regular}</div>
         </div>
     </c:forEach>
 </div>
