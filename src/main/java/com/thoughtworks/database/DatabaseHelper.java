@@ -85,7 +85,7 @@ public class DatabaseHelper {
             Node rules = createNode(NODE_NAME, "Rules");
 
             Node priceDependsAgeRule = createNode(NODE_NAME, "Price depends on age");
-//            rules.createRelationshipTo(priceDependsAgeRule, MyRelationship.RULE);
+            rules.createRelationshipTo(priceDependsAgeRule, MyRelationship.RULE);
 
             Node child = createNode(NODE_NAME, "Child");
             Relationship childRel = priceDependsAgeRule.createRelationshipTo(child, MyRelationship.LESS_THAN);

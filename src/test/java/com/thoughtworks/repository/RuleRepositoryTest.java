@@ -1,8 +1,11 @@
 package com.thoughtworks.repository;
 
 import com.thoughtworks.database.DatabaseHelper;
+import com.thoughtworks.model.Rule;
 import org.junit.Test;
 import org.neo4j.graphdb.Node;
+
+import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -46,11 +49,17 @@ public class RuleRepositoryTest {
     }
 
     @Test
-    public void shouldReturnWeatherThereIsRule()
-    {
-        RuleRepository  ruleRepository = new RuleRepository();
+    public void shouldReturnWeatherThereIsRule() {
+        RuleRepository ruleRepository = new RuleRepository();
         boolean hasRule = ruleRepository.hasRule();
-        assertThat( hasRule, is(true));
+        assertThat(hasRule, is(true));
+    }
+
+    @Test
+    public void shouldReturnAllTheRules() throws Exception {
+        RuleRepository ruleRepository = new RuleRepository();
+        List<Rule> listOfRules = ruleRepository.getRules();
+        assertThat( listOfRules.size(), is(1));
     }
 
 }

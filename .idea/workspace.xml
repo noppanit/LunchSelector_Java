@@ -73,46 +73,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Menu.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Menu.java">
+      <file leaf-file-name="RuleController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/RuleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="60" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="14" column="4" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java">
+      <file leaf-file-name="QuestionRepository.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/QuestionRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="71" selection-start="3463" selection-end="3463" vertical-scroll-proportion="-8.576923">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomerController.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="126" column="65" selection-start="5381" selection-end="5381" vertical-scroll-proportion="0.8778626">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="customerMenu.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="61" selection-start="2465" selection-end="2465" vertical-scroll-proportion="-19.47619">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RuleRepository.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/RuleRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="93" column="17" selection-start="3582" selection-end="3582" vertical-scroll-proportion="0.0">
+            <state line="23" column="95" selection-start="506" selection-end="944" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -121,7 +96,27 @@
       <file leaf-file-name="RuleRepositoryTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/RuleRepositoryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="66" selection-start="1687" selection-end="1687" vertical-scroll-proportion="0.0">
+            <state line="62" column="13" selection-start="2035" selection-end="2035" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RuleRepository.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/RuleRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="12" selection-start="407" selection-end="407" vertical-scroll-proportion="0.22794117">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/MenuController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="0" selection-start="38" selection-end="336" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -143,8 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/css/main.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Menu.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/menu.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerForm.jsp" />
@@ -154,11 +147,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Customer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/constant/Constant.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/RuleController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Rule.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/RuleRepositoryTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/RuleRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java" />
       </list>
     </option>
   </component>
@@ -612,7 +607,7 @@
       <recent name="com.thoughtworks.database" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RuleRepositoryTest.shouldReturnWeatherThereIsRule">
+  <component name="RunManager" selected="JUnit.RuleRepositoryTest.shouldReturnAllTheRules">
     <configuration default="false" name="RuleRepositoryTest.shouldReturnAgeBetweenCategoryBasedOnRule" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false">
         <pattern>
@@ -735,6 +730,34 @@
       <ConfigurationWrapper RunnerId="Debug" />
       <method />
     </configuration>
+    <configuration default="false" name="RuleRepositoryTest.shouldReturnAllTheRules" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false">
+        <pattern>
+          <option name="PATTERN" value="com.thoughtworks.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="LunchSelector" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.thoughtworks.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.thoughtworks.repository.RuleRepositoryTest" />
+      <option name="METHOD_NAME" value="shouldReturnAllTheRules" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -847,12 +870,13 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="5">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldReturnAgeBetweenCategoryBasedOnRule" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldReturnAgeDefaultCategoryBasedOnRule" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldReturnAgeLessThanCategoryBasedOnRule" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldReturnWeatherThereIsRule" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldReturnAllTheRules" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -1004,26 +1028,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/NodeObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="34" selection-start="104" selection-end="104" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/QuestionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="47" selection-start="2399" selection-end="2399" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="3" selection-start="2871" selection-end="2871" vertical-scroll-proportion="0.76939654" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/relationship/MyRelationship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/menu.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="12" selection-start="1724" selection-end="1776" vertical-scroll-proportion="0.8134328">
@@ -1073,39 +1077,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/RuleRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="93" column="17" selection-start="3582" selection-end="3582" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/RuleRepositoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="66" selection-start="1687" selection-end="1687" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="61" selection-start="2465" selection-end="2465" vertical-scroll-proportion="-19.47619">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="71" selection-start="3463" selection-end="3463" vertical-scroll-proportion="-8.576923">
+        <state line="53" column="61" selection-start="2465" selection-end="2465" vertical-scroll-proportion="0.7630597">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="65" selection-start="5381" selection-end="5381" vertical-scroll-proportion="0.8778626">
+        <state line="81" column="5" selection-start="3306" selection-end="3306" vertical-scroll-proportion="2.3547795">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="100" column="49" selection-start="3765" selection-end="3765" vertical-scroll-proportion="0.3967684">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="38" selection-end="336" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/RuleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="4" selection-start="465" selection-end="465" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/QuestionRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="95" selection-start="506" selection-end="944" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Rule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="36" selection-start="69" selection-end="69" vertical-scroll-proportion="0.044692736">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/RuleRepositoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="13" selection-start="2035" selection-end="2035" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/RuleRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="12" selection-start="407" selection-end="407" vertical-scroll-proportion="0.22794117">
           <folding />
         </state>
       </provider>

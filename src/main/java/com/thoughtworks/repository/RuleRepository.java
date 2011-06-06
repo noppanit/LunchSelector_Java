@@ -1,20 +1,36 @@
 package com.thoughtworks.repository;
 
 import com.thoughtworks.database.DatabaseHelper;
+import com.thoughtworks.model.Question;
+import com.thoughtworks.model.Rule;
 import com.thoughtworks.relationship.MyRelationship;
-import org.neo4j.graphdb.Direction;
-import org.neo4j.graphdb.Node;
-import org.neo4j.graphdb.Relationship;
+import com.thoughtworks.util.ListHelper;
+import org.neo4j.graphdb.*;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class RuleRepository {
 
     private static final String END_NODE_ID = "EndNode";
-    DatabaseHelper db = DatabaseHelper.getInstance();
+    private DatabaseHelper db = DatabaseHelper.getInstance();
+
+    public boolean hasRule() {
+
+        Node rule = db.getRuleNode();
+        return rule.hasRelationship(MyRelationship.RULE, Direction.OUTGOING);
+    }
+
+    public List<Rule> getRules() throws Exception {
+        Node questionNode = db.getRuleNode();
+        Traverser traverse = questionNode.traverse(Traverser.Order.BREADTH_FIRST,
+                StopEvaluator.END_OF_GRAPH,
+                ReturnableEvaluator.ALL_BUT_START_NODE,
+                MyRelationship.RULE, Direction.OUTGOING);
+
+        Collection<Node> nodes = traverse.getAllNodes();
+        List<Rule> allRules = ListHelper.setSpecialProperties(nodes, new Rule());
+        return allRules;
+    }
 
     public Node evaluateRule(int age) {
         Node endNode = null;
@@ -84,11 +100,5 @@ public class RuleRepository {
             rules.put(rel.getType().toString(), ruleEvaluator);
         }
         return rules;
-    }
-
-    public boolean hasRule() {
-
-        Node rule = db.getRuleNode();
-        return rule.hasRelationship(MyRelationship.RULE, Direction.OUTGOING);
     }
 }
