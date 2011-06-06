@@ -7,6 +7,7 @@ import com.thoughtworks.model.Menu;
 import com.thoughtworks.model.Question;
 import com.thoughtworks.repository.CustomerRepository;
 import com.thoughtworks.repository.QuestionRepository;
+import com.thoughtworks.repository.RuleRepository;
 import org.neo4j.graphdb.Node;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -102,9 +104,23 @@ public class CustomerController {
     @RequestMapping(value = "menu/{customername}", method = GET)
     public String getPersonalisedMenu(@PathVariable String customername, Model model) throws Exception {
         Node customer = customerRepository.getCustomer(customername);
+
+        int customerAge = 0;
+        if (customer.hasProperty(DatabaseHelper.NODE_DOB)) {
+            Calendar customerDateOfBirth = customerRepository.getCustomerDateOfBirth(customer);
+            customerAge = customerRepository.calculateAge(customerDateOfBirth);
+        }
+
+        RuleRepository ruleRepository = new RuleRepository();
+        Node ageCategory = ruleRepository.evaluateRule(customerAge);
+
         List<Menu> customerPersonalisedMenu = customerRepository.getPersonalisedMenu(customer);
+
+
         model.addAttribute("personalisedMenus", customerPersonalisedMenu);
         model.addAttribute("customername", customername);
+        model.addAttribute("customerAge", customerAge);
+        model.addAttribute("ageCategory", ageCategory.getProperty(DatabaseHelper.NODE_NAME).toString());
 
         return "customerMenu";
     }

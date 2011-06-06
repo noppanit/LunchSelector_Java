@@ -119,24 +119,20 @@ public class CustomerRepository {
         }
     }
 
-    public Calendar getCustomerAge(Node customer) throws ParseException {
+    public Calendar getCustomerDateOfBirth(Node customer) throws ParseException {
         String customerDOB = (String) customer.getProperty(DatabaseHelper.NODE_DOB);
 
         Date customerDate = Constant.SIMPLE_DATE_FORMAT.parse(customerDOB);
-        Calendar customerAge = Calendar.getInstance();
-        customerAge.setTime(customerDate);
+        Calendar customerDateOfBirth = Calendar.getInstance();
+        customerDateOfBirth.setTime(customerDate);
 
-        return customerAge;
+        return customerDateOfBirth;
     }
 
-    public int calculateAge(Calendar customerAge) {
+    public int calculateAge(Calendar customerDateOfBirth) {
         int nowYear = Calendar.getInstance().get(Calendar.YEAR);
-        return nowYear - customerAge.get(Calendar.YEAR);
+        return nowYear - customerDateOfBirth.get(Calendar.YEAR);
     }
 
-    public List<Customer> getCustomerBasedOnRule(int age) {
 
-
-        return Collections.EMPTY_LIST;
-    }
 }

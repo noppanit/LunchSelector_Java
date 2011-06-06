@@ -8,6 +8,8 @@
 <body>
 <div id="menu_body">
     <h1>Hi! This is all the menu we suggest you. ${customername}</h1>
+    <h2>Age: ${customerAge}</h2>
+    <h2>Age Category: ${ageCategory}</h2>
 
     <h2>
         <a href="/">Home</a>
@@ -42,6 +44,14 @@
                 </c:choose>
             </div>
             <div id="dish_name">${personalisedMenu.name}</div>
+            <div id="">Regular Price:&#163;
+            <c:choose>
+                <c:when test="${ageCategory == 'Child'}">${personalisedMenu.child}</c:when>
+                <c:when test="${ageCategory == 'Adult'}">${personalisedMenu.regular}</c:when>
+                <c:when test="${ageCategory == 'Pensioner'}">${personalisedMenu.pensioner}</c:when>
+            </c:choose>
+
+            </div>
         </div>
     </c:forEach>
 </div>

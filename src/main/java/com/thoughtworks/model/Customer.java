@@ -11,4 +11,6 @@ public class Customer extends NodeObject{
     public void setDob(String dob) {
         this.dob = dob;
     }
+
+
 }

@@ -67,7 +67,7 @@ public class CustomerTest extends BaseTest {
         customerRepository.createCustomer("Jo", stringDate);
 
         Node jo = customerRepository.getCustomer("Jo");
-        Calendar customerAge = customerRepository.getCustomerAge(jo);
+        Calendar customerAge = customerRepository.getCustomerDateOfBirth(jo);
 
         int age = customerRepository.calculateAge(customerAge);
 
