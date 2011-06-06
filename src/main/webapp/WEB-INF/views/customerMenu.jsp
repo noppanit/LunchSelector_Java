@@ -49,6 +49,7 @@
                 <c:when test="${ageCategory == 'Child'}">${personalisedMenu.child}</c:when>
                 <c:when test="${ageCategory == 'Adult'}">${personalisedMenu.regular}</c:when>
                 <c:when test="${ageCategory == 'Pensioner'}">${personalisedMenu.pensioner}</c:when>
+                <c:otherwise>${personalisedMenu.regular}</c:otherwise>
             </c:choose>
 
             </div>

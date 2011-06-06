@@ -45,4 +45,12 @@ public class RuleRepositoryTest {
         assertThat(adult.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Adult"));
     }
 
+    @Test
+    public void shouldReturnWeatherThereIsRule()
+    {
+        RuleRepository  ruleRepository = new RuleRepository();
+        boolean hasRule = ruleRepository.hasRule();
+        assertThat( hasRule, is(true));
+    }
+
 }

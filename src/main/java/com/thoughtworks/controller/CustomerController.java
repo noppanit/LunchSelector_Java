@@ -111,16 +111,20 @@ public class CustomerController {
             customerAge = customerRepository.calculateAge(customerDateOfBirth);
         }
 
+        String ageCategory = "";
         RuleRepository ruleRepository = new RuleRepository();
-        Node ageCategory = ruleRepository.evaluateRule(customerAge);
+        if( ruleRepository.hasRule() )
+        {
+            Node ageCategoryNode = ruleRepository.evaluateRule(customerAge);
+            ageCategory = ageCategoryNode.getProperty(DatabaseHelper.NODE_NAME).toString();
+        }
 
         List<Menu> customerPersonalisedMenu = customerRepository.getPersonalisedMenu(customer);
-
 
         model.addAttribute("personalisedMenus", customerPersonalisedMenu);
         model.addAttribute("customername", customername);
         model.addAttribute("customerAge", customerAge);
-        model.addAttribute("ageCategory", ageCategory.getProperty(DatabaseHelper.NODE_NAME).toString());
+        model.addAttribute("ageCategory", ageCategory);
 
         return "customerMenu";
     }

@@ -32,6 +32,7 @@ public class DatabaseHelper {
     private Index<Node> customersIndex = null;
     private Index<Node> menuIndex = null;
     private Index<Node> questionIndex = null;
+    private Index<Node> ruleIndex = null;
 
     public static DatabaseHelper getInstance() {
         if (db == null) {
@@ -56,6 +57,10 @@ public class DatabaseHelper {
         return questionIndex.get(NODE_NAME, "Questions").getSingle();
     }
 
+    public Node getRuleNode() {
+        return ruleIndex.get(NODE_NAME, "Rules").getSingle();
+    }
+
     public Node getNodeById(long nodeId) {
         return graphDb.getNodeById(nodeId);
     }
@@ -70,17 +75,17 @@ public class DatabaseHelper {
             customersIndex = graphDb.index().forNodes("customers");
             menuIndex = graphDb.index().forNodes("menu");
             questionIndex = graphDb.index().forNodes("questions");
-
+            ruleIndex = graphDb.index().forNodes("rules");
 
             Node rootNode = getRoot();
             Node customer = createNode(NODE_NAME, "Customers");
             Node question = createNode(NODE_NAME, "Questions");
 
             Node menu = createNode(NODE_NAME, "Menu");
-            Node rules = createNode(NODE_NAME,"Rules");
+            Node rules = createNode(NODE_NAME, "Rules");
 
-            Node priceDependsAgeRule  = createNode(NODE_NAME, "Price depends on age");
-            rules.createRelationshipTo(priceDependsAgeRule, MyRelationship.RULE);
+            Node priceDependsAgeRule = createNode(NODE_NAME, "Price depends on age");
+//            rules.createRelationshipTo(priceDependsAgeRule, MyRelationship.RULE);
 
             Node child = createNode(NODE_NAME, "Child");
             Relationship childRel = priceDependsAgeRule.createRelationshipTo(child, MyRelationship.LESS_THAN);
@@ -99,6 +104,7 @@ public class DatabaseHelper {
             menuIndex.add(menu, NODE_NAME, "Menu");
             customersIndex.add(customer, NODE_NAME, "Customers");
             questionIndex.add(question, NODE_NAME, "Questions");
+            ruleIndex.add(rules, NODE_NAME, "Rules");
 
             relateToRoot(rootNode, customer);
             relateToRoot(rootNode, question);

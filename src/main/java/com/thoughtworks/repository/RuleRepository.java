@@ -86,4 +86,9 @@ public class RuleRepository {
         return rules;
     }
 
+    public boolean hasRule() {
+
+        Node rule = db.getRuleNode();
+        return rule.hasRelationship(MyRelationship.RULE, Direction.OUTGOING);
+    }
 }
