@@ -117,7 +117,7 @@ public class DatabaseHelper {
             menu.createRelationshipTo(nutSalad, MyRelationship.DISH);
 
             Node mary = createCustomer("Mary");
-            mary.setProperty(NODE_DOB, "01/01/90");
+            mary.setProperty(NODE_DOB, "01/01/1990");
             Node joy = createCustomer("Joy");
             Node john = createCustomer("John");
 
