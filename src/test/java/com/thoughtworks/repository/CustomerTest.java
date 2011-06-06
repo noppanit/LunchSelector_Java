@@ -10,7 +10,6 @@ import org.neo4j.graphdb.Node;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 import static com.thoughtworks.matcher.ContainsOnlySpecificNameOfNodes.containsOnlyNodeNames;
@@ -74,11 +73,5 @@ public class CustomerTest extends BaseTest {
 
         assertThat(age, is(10));
     }
-
-    @Test
-    public void shouldReturnAgeCategoryBasedOnRule() {
-
-    }
-
 
 }
