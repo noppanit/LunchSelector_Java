@@ -32,6 +32,22 @@ public class RuleRepository {
         return allRules;
     }
 
+    public void iterateRules(Node customer) throws Exception {
+//        List<Rule> listOfRules = getRules();
+//        for( Rule rule : listOfRules)
+//        {
+//            if( rule.getRuleType().equals("EvaluateOn"))
+////                new CustomerRepository().getCustomerDateOfBirth(customer);
+//                rule.getUsing();
+//            // get using Age
+//                evaluateRule();
+//            else
+//            {
+//                // do something else
+//            }
+//        }
+    }
+
     public Node evaluateRule(int age) {
         Node endNode = null;
         HashMap<String, HashMap<String, String>> maps = getRuleMetadata();
@@ -82,6 +98,7 @@ public class RuleRepository {
      */
     private HashMap<String, HashMap<String, String>> getRuleMetadata() {
         Node rule = db.getNodeById(5);
+
         Iterator<Relationship> relationships = rule.getRelationships(Direction.OUTGOING).iterator();
 
         HashMap<String, HashMap<String, String>> rules = new HashMap<String, HashMap<String, String>>();
@@ -101,4 +118,6 @@ public class RuleRepository {
         }
         return rules;
     }
+
+
 }

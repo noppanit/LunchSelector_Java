@@ -85,6 +85,8 @@ public class DatabaseHelper {
             Node rules = createNode(NODE_NAME, "Rules");
 
             Node priceDependsAgeRule = createNode(NODE_NAME, "Price depends on age");
+            priceDependsAgeRule.setProperty("RuleType","EvaluateOn");
+            priceDependsAgeRule.setProperty("Using","Age");
             rules.createRelationshipTo(priceDependsAgeRule, MyRelationship.RULE);
 
             Node child = createNode(NODE_NAME, "Child");
