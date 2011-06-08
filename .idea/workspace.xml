@@ -76,7 +76,7 @@
       <file leaf-file-name="RuleRepository.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/RuleRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="34" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.0">
+            <state line="126" column="44" selection-start="4787" selection-end="4792" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -85,16 +85,34 @@
       <file leaf-file-name="CustomerController.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="57" selection-start="4719" selection-end="4719" vertical-scroll-proportion="0.0">
+            <state line="110" column="54" selection-start="4575" selection-end="4575" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RuleRepositoryTest.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="RuleRepositoryTest.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/RuleRepositoryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="54" selection-start="1000" selection-end="1000" vertical-scroll-proportion="0.49551168">
+            <state line="22" column="56" selection-start="652" selection-end="652" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerRepository.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="138" column="41" selection-start="5372" selection-end="5372" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CustomerTest.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="56" selection-start="2964" selection-end="2964" vertical-scroll-proportion="0.3602941">
               <folding />
             </state>
           </provider>
@@ -118,7 +136,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerForm.jsp" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/QuestionTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/relationship/MyRelationship.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Customer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/constant/Constant.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp" />
@@ -130,6 +147,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/RuleRepositoryTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/RuleRepository.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java" />
       </list>
     </option>
   </component>
@@ -583,69 +601,7 @@
       <recent name="com.thoughtworks.database" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RuleRepositoryTest">
-    <configuration default="false" name="RuleRepositoryTest" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false">
-        <pattern>
-          <option name="PATTERN" value="com.thoughtworks.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="LunchSelector" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.thoughtworks.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.thoughtworks.repository.RuleRepositoryTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="RuleRepositoryTest.shouldReturnAgeDefaultCategoryBasedOnRule" type="JUnit" factoryName="JUnit" temporary="true">
-      <extension name="coverage" enabled="false" merge="false">
-        <pattern>
-          <option name="PATTERN" value="com.thoughtworks.repository.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="LunchSelector" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.thoughtworks.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.thoughtworks.repository.RuleRepositoryTest" />
-      <option name="METHOD_NAME" value="shouldReturnAgeDefaultCategoryBasedOnRule" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="61340" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.CustomerTest.shouldReturnChildNodeForAgeUnderChildThreshold">
     <configuration default="false" name="RuleRepositoryTest.shouldReturnAgeLessThanCategoryBasedOnRule" type="JUnit" factoryName="JUnit" temporary="true">
       <extension name="coverage" enabled="false" merge="false">
         <pattern>
@@ -737,6 +693,62 @@
       </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="CustomerTest.shoudlReturnChildNodeForAgeUnderChildThreshold" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false">
+        <pattern>
+          <option name="PATTERN" value="com.thoughtworks.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="LunchSelector" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.thoughtworks.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.thoughtworks.repository.CustomerTest" />
+      <option name="METHOD_NAME" value="shoudlReturnChildNodeForAgeUnderChildThreshold" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="CustomerTest.shouldReturnChildNodeForAgeUnderChildThreshold" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false">
+        <pattern>
+          <option name="PATTERN" value="com.thoughtworks.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="LunchSelector" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.thoughtworks.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.thoughtworks.repository.CustomerTest" />
+      <option name="METHOD_NAME" value="shouldReturnChildNodeForAgeUnderChildThreshold" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
@@ -853,12 +865,12 @@
       <method />
     </configuration>
     <list size="6">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldReturnAgeDefaultCategoryBasedOnRule" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldReturnAgeLessThanCategoryBasedOnRule" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldReturnWeatherThereIsRule" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldReturnAllTheRules" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldReturnTenPercentDiscount" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldReturnAgeLessThanCategoryBasedOnRule" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldReturnWeatherThereIsRule" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldReturnAllTheRules" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.RuleRepositoryTest.shouldReturnTenPercentDiscount" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.CustomerTest.shoudlReturnChildNodeForAgeUnderChildThreshold" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.CustomerTest.shouldReturnChildNodeForAgeUnderChildThreshold" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -1010,11 +1022,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="4" selection-start="100" selection-end="100" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="60" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0" />
@@ -1055,13 +1062,6 @@
         <state line="19" column="57" selection-start="649" selection-end="649" vertical-scroll-proportion="0.40933573" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="138" column="41" selection-start="5372" selection-end="5372" vertical-scroll-proportion="1.071599">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.8/junit-4.8.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="40" selection-start="397" selection-end="397" vertical-scroll-proportion="0.2993197">
@@ -1083,23 +1083,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/RuleRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="34" selection-start="1610" selection-end="1610" vertical-scroll-proportion="0.0">
+        <state line="110" column="54" selection-start="4575" selection-end="4575" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/RuleRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="57" selection-start="4719" selection-end="4719" vertical-scroll-proportion="0.0">
+        <state line="126" column="44" selection-start="4787" selection-end="4792" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/RuleRepositoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="54" selection-start="1000" selection-end="1000" vertical-scroll-proportion="0.49551168">
+        <state line="22" column="56" selection-start="652" selection-end="652" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/CustomerRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="138" column="41" selection-start="5372" selection-end="5372" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="56" selection-start="2964" selection-end="2964" vertical-scroll-proportion="0.3602941">
           <folding />
         </state>
       </provider>
