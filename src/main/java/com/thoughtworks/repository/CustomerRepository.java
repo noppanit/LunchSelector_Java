@@ -5,6 +5,7 @@ import com.thoughtworks.database.DatabaseHelper;
 import com.thoughtworks.model.Answer;
 import com.thoughtworks.model.Customer;
 import com.thoughtworks.model.Menu;
+import com.thoughtworks.model.Rule;
 import com.thoughtworks.relationship.MyRelationship;
 import com.thoughtworks.util.ListHelper;
 import org.neo4j.graphdb.*;
@@ -144,5 +145,48 @@ public class CustomerRepository {
         return calculateAge(customerDOB);
     }
 
+    public HashMap<String, String> getEndNodeByRule(Node customer) throws Exception {
+        RuleRepository ruleRepository = new RuleRepository();
+        int value = 0;
+        HashMap<String,String> mapOfRuleAndEndNode = new HashMap<String,String>();
+        List<Rule> listOfRules = getCustomerRules();
+        for (Rule rule : listOfRules) {
+            String ruleUsesThis = rule.getUsing();
+            value = getValueBasedOn(ruleUsesThis, customer);
+            Node endNode = ruleRepository.evaluateRuleBasedOn(ruleUsesThis).withValue(value);
+            String endNodeString = endNode.getProperty(DatabaseHelper.NODE_NAME).toString();
+            mapOfRuleAndEndNode.put(ruleUsesThis, endNodeString);
+        }
+        return mapOfRuleAndEndNode;
+    }
 
+    private int getValueBasedOn(String using, Node customerNode) {
+        int value = 0;
+        if (using == "Age")
+            value = getAge(customerNode);
+
+        return value;
+    }
+
+    public List<Rule> getCustomerRules() throws Exception {
+        Node customerNode = db.getCustomerNode();
+
+        Traverser traverse = customerNode.traverse(Traverser.Order.BREADTH_FIRST,
+                StopEvaluator.END_OF_GRAPH,
+                ReturnableEvaluator.ALL_BUT_START_NODE,
+                MyRelationship.APPLIES, Direction.OUTGOING);
+
+        Collection<Node> nodes = traverse.getAllNodes();
+        List<Rule> allCustomerRules = ListHelper.setSpecialProperties(nodes, new Rule());
+        return allCustomerRules;
+    }
+
+    public boolean hasRules() {
+        try {
+            return getCustomerRules().size() > 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

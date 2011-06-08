@@ -4,6 +4,7 @@ import com.thoughtworks.constant.Constant;
 import com.thoughtworks.database.DatabaseHelper;
 import com.thoughtworks.model.Customer;
 import com.thoughtworks.model.Menu;
+import com.thoughtworks.model.Rule;
 import org.junit.Test;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
@@ -94,6 +95,14 @@ public class CustomerTest extends BaseTest {
         } finally {
             transaction.failure();
         }
+    }
+
+    @Test
+    public void shouldGetAllRulesAppliedToCustomer() throws Exception {
+        CustomerRepository customerRepository = new CustomerRepository();
+        List<Rule> listOfRules = customerRepository.getCustomerRules();
+
+        assertThat(listOfRules.size(), is(1));
     }
 
 

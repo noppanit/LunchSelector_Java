@@ -1,10 +1,7 @@
 package com.thoughtworks.controller;
 
 import com.thoughtworks.database.DatabaseHelper;
-import com.thoughtworks.model.Answer;
-import com.thoughtworks.model.Customer;
-import com.thoughtworks.model.Menu;
-import com.thoughtworks.model.Question;
+import com.thoughtworks.model.*;
 import com.thoughtworks.repository.CustomerRepository;
 import com.thoughtworks.repository.QuestionRepository;
 import com.thoughtworks.repository.RuleRepository;
@@ -16,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -104,17 +102,11 @@ public class CustomerController {
     public String getPersonalisedMenu(@PathVariable String customername, Model model) throws Exception {
         Node customer = customerRepository.getCustomer(customername);
 
-        int customerAge = 0;
-        if (customer.hasProperty(DatabaseHelper.NODE_DOB)) {
-            customerAge = customerRepository.getAge(customer);
-        }
-
+        int customerAge = customerRepository.getAge(customer);
         String ageCategory = "";
-        RuleRepository ruleRepository = new RuleRepository();
-        if( ruleRepository.hasRule() )
-        {
-            Node ageCategoryNode = ruleRepository.evaluateRuleBasedOn("Age").withValue(customerAge);
-            ageCategory = ageCategoryNode.getProperty(DatabaseHelper.NODE_NAME).toString();
+        if (customerRepository.hasRules()) {
+            HashMap<String,String> mapOfRuleAndEndNode = customerRepository.getEndNodeByRule(customer);
+            ageCategory = mapOfRuleAndEndNode.get("Age");
         }
 
         List<Menu> customerPersonalisedMenu = customerRepository.getPersonalisedMenu(customer);
