@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -107,15 +106,14 @@ public class CustomerController {
 
         int customerAge = 0;
         if (customer.hasProperty(DatabaseHelper.NODE_DOB)) {
-            Calendar customerDateOfBirth = customerRepository.getCustomerDateOfBirth(customer);
-            customerAge = customerRepository.calculateAge(customerDateOfBirth);
+            customerAge = customerRepository.getAge(customer);
         }
 
         String ageCategory = "";
         RuleRepository ruleRepository = new RuleRepository();
         if( ruleRepository.hasRule() )
         {
-            Node ageCategoryNode = ruleRepository.evaluateRule(customerAge);
+            Node ageCategoryNode = ruleRepository.evaluateRule(customerAge, "");
             ageCategory = ageCategoryNode.getProperty(DatabaseHelper.NODE_NAME).toString();
         }
 

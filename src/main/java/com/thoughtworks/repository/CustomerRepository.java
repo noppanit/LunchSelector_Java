@@ -134,5 +134,15 @@ public class CustomerRepository {
         return nowYear - customerDateOfBirth.get(Calendar.YEAR);
     }
 
+    public int getAge(Node customer) {
+        Calendar customerDOB = null;
+        try {
+            customerDOB = getCustomerDateOfBirth(customer);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return calculateAge(customerDOB);
+    }
+
 
 }

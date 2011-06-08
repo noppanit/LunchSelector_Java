@@ -84,10 +84,21 @@ public class DatabaseHelper {
             Node menu = createNode(NODE_NAME, "Menu");
             Node rules = createNode(NODE_NAME, "Rules");
 
-            Node priceDependsAgeRule = createNode(NODE_NAME, "Price depends on age");
+            Node priceDependsAgeRule = createNode(NODE_NAME, "Age");
             priceDependsAgeRule.setProperty("RuleType","EvaluateOn");
             priceDependsAgeRule.setProperty("Using","Age");
             rules.createRelationshipTo(priceDependsAgeRule, MyRelationship.RULE);
+
+
+            Node discountRule = createNode(NODE_NAME, "Discount");
+            discountRule.setProperty("RuleType","EvaluateOn");
+            discountRule.setProperty("Using","Quantity");
+            rules.createRelationshipTo(discountRule, MyRelationship.RULE);
+
+            Node tenPercent = createNode(NODE_NAME, "10");
+            Relationship tenPercentRel = discountRule.createRelationshipTo(tenPercent, MyRelationship.GREATER_THAN);
+            tenPercentRel.setProperty(NODE_THRESHOLD, 2);
+
 
             Node child = createNode(NODE_NAME, "Child");
             Relationship childRel = priceDependsAgeRule.createRelationshipTo(child, MyRelationship.LESS_THAN);

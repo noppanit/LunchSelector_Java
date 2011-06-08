@@ -1,7 +1,6 @@
 package com.thoughtworks.repository;
 
 import com.thoughtworks.database.DatabaseHelper;
-import com.thoughtworks.model.Question;
 import com.thoughtworks.model.Rule;
 import com.thoughtworks.relationship.MyRelationship;
 import com.thoughtworks.util.ListHelper;
@@ -32,51 +31,42 @@ public class RuleRepository {
         return allRules;
     }
 
-    public void iterateRules(Node customer) throws Exception {
-//        List<Rule> listOfRules = getRules();
-//        for( Rule rule : listOfRules)
-//        {
-//            if( rule.getRuleType().equals("EvaluateOn"))
-////                new CustomerRepository().getCustomerDateOfBirth(customer);
-//                rule.getUsing();
-//            // get using Age
-//                evaluateRule();
-//            else
-//            {
-//                // do something else
-//            }
-//        }
-    }
-
-    public Node evaluateRule(int age) {
+    public Node evaluateRule(int value, String using) {
         Node endNode = null;
-        HashMap<String, HashMap<String, String>> maps = getRuleMetadata();
-        Set<String> keySet = maps.keySet();
+        HashMap<RelationshipType, HashMap<String, String>> maps = null;
 
-        for (String relationshipType : keySet) {
-            if (relationshipType.equals("LESS_THAN")) {
+        try {
+            maps = getRuleMetadata(using);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Set<RelationshipType> keySet = maps.keySet();
+
+        for (RelationshipType relationshipType : keySet) {
+            if (relationshipType.name().equals("LESS_THAN")) {
                 HashMap<String, String> propertyMaps = maps.get(relationshipType);
                 int threshold = Integer.parseInt(propertyMaps.get("Threshold"));
-                if (age > 0 && age < threshold) {
+                if (value > 0 && value < threshold) {
                     endNode = getEndNode(propertyMaps);
                 }
 
-            } else if (relationshipType.equals("GREATER_THAN")) {
+            } else if (relationshipType.name().equals("GREATER_THAN")) {
                 HashMap<String, String> propertyMaps = maps.get(relationshipType);
                 int threshold = Integer.parseInt(propertyMaps.get("Threshold"));
-                if (age > threshold) {
+                if (value > threshold) {
                     endNode = getEndNode(propertyMaps);
                 }
-            } else if (relationshipType.equals("BETWEEN")) {
+            } else if (relationshipType.name().equals("BETWEEN")) {
                 HashMap<String, String> propertyMaps = maps.get(relationshipType);
                 int from = Integer.parseInt(propertyMaps.get("From"));
                 int to = Integer.parseInt(propertyMaps.get("To"));
-                if (from < age && age < to) {
+                if (from < value && value < to) {
                     endNode = getEndNode(propertyMaps);
                 }
-            } else if (relationshipType.equals("UNKNOWN_AGE")) {
+            } else if (relationshipType.name().equals("UNKNOWN_AGE")) {
                 HashMap<String, String> propertyMaps = maps.get(relationshipType);
-                if (age == 0) {
+                if (value == 0) {
                     endNode = getEndNode((propertyMaps));
                 }
             }
@@ -95,13 +85,15 @@ public class RuleRepository {
      * Could get endNode by the key "EndNode"
      *
      * @return
+     * @param using
      */
-    private HashMap<String, HashMap<String, String>> getRuleMetadata() {
-        Node rule = db.getNodeById(5);
+    private HashMap<RelationshipType, HashMap<String, String>> getRuleMetadata(String using) throws Exception {
 
-        Iterator<Relationship> relationships = rule.getRelationships(Direction.OUTGOING).iterator();
+        Node theRule = getRuleByUsing(using);
 
-        HashMap<String, HashMap<String, String>> rules = new HashMap<String, HashMap<String, String>>();
+        Iterator<Relationship> relationships = theRule.getRelationships(Direction.OUTGOING).iterator();
+
+        HashMap<RelationshipType, HashMap<String, String>> rules = new HashMap<RelationshipType, HashMap<String, String>>();
 
         while (relationships.hasNext()) {
             Relationship rel = relationships.next();
@@ -114,9 +106,22 @@ public class RuleRepository {
                 ruleEvaluator.put(keyName, rel.getProperty(keyName).toString());
             }
             ruleEvaluator.put(END_NODE_ID, String.valueOf(rel.getEndNode().getId()));
-            rules.put(rel.getType().toString(), ruleEvaluator);
+            rules.put(rel.getType(), ruleEvaluator);
         }
         return rules;
+    }
+
+    private Node getRuleByUsing(String using) throws Exception {
+        Node theRule = null;
+        List<Rule> listOfRules = getRules();
+        for(Rule rule : listOfRules)
+        {
+            if(rule.getUsing().equals(using))
+            {
+                theRule = db.getNodeById(rule.getId());
+            }
+        }
+        return theRule;
     }
 
 

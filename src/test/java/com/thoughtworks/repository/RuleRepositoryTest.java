@@ -17,7 +17,7 @@ public class RuleRepositoryTest {
         int age = 10;
 
         RuleRepository ruleRepository = new RuleRepository();
-        Node child = ruleRepository.evaluateRule(age);
+        Node child = ruleRepository.evaluateRule(age, "Age");
         assertThat(child.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Child"));
     }
 
@@ -26,7 +26,7 @@ public class RuleRepositoryTest {
         int age = 66;
 
         RuleRepository ruleRepository = new RuleRepository();
-        Node pensioner = ruleRepository.evaluateRule(age);
+        Node pensioner = ruleRepository.evaluateRule(age, "Age");
         assertThat(pensioner.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Pensioner"));
     }
 
@@ -35,7 +35,7 @@ public class RuleRepositoryTest {
         int age = 60;
 
         RuleRepository ruleRepository = new RuleRepository();
-        Node adult = ruleRepository.evaluateRule(age);
+        Node adult = ruleRepository.evaluateRule(age, "Age");
         assertThat(adult.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Adult"));
     }
 
@@ -44,8 +44,17 @@ public class RuleRepositoryTest {
         int age = 0;
 
         RuleRepository ruleRepository = new RuleRepository();
-        Node adult = ruleRepository.evaluateRule(age);
+        Node adult = ruleRepository.evaluateRule(age, "Age");
         assertThat(adult.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Adult"));
+    }
+
+    @Test
+    public void shouldReturnTenPercentDiscount() {
+        int age = 3;
+
+        RuleRepository ruleRepository = new RuleRepository();
+        Node adult = ruleRepository.evaluateRule(age, "Quantity");
+        assertThat(adult.getProperty(DatabaseHelper.NODE_NAME).toString(), is("10"));
     }
 
     @Test
@@ -59,7 +68,7 @@ public class RuleRepositoryTest {
     public void shouldReturnAllTheRules() throws Exception {
         RuleRepository ruleRepository = new RuleRepository();
         List<Rule> listOfRules = ruleRepository.getRules();
-        assertThat( listOfRules.size(), is(1));
+        assertThat(listOfRules.size(), is(2));
     }
 
 }
