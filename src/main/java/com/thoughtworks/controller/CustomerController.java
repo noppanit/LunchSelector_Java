@@ -113,7 +113,7 @@ public class CustomerController {
         RuleRepository ruleRepository = new RuleRepository();
         if( ruleRepository.hasRule() )
         {
-            Node ageCategoryNode = ruleRepository.evaluateRule(customerAge, "");
+            Node ageCategoryNode = ruleRepository.evaluateRuleBasedOn("Age").withValue(customerAge);
             ageCategory = ageCategoryNode.getProperty(DatabaseHelper.NODE_NAME).toString();
         }
 

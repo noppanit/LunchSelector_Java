@@ -31,8 +31,8 @@ public class RuleRepository {
         return allRules;
     }
 
-    public Node evaluateRule(int value, String using) {
-        Node endNode = null;
+    public SubRule evaluateRuleBasedOn(String using) {
+
         HashMap<RelationshipType, HashMap<String, String>> maps = null;
 
         try {
@@ -41,37 +41,50 @@ public class RuleRepository {
             e.printStackTrace();
         }
 
-        Set<RelationshipType> keySet = maps.keySet();
+        return new SubRule(maps);
+    }
 
-        for (RelationshipType relationshipType : keySet) {
-            if (relationshipType.name().equals("LESS_THAN")) {
-                HashMap<String, String> propertyMaps = maps.get(relationshipType);
-                int threshold = Integer.parseInt(propertyMaps.get("Threshold"));
-                if (value > 0 && value < threshold) {
-                    endNode = getEndNode(propertyMaps);
-                }
+    public class SubRule {
+        private HashMap<RelationshipType, HashMap<String, String>> maps;
 
-            } else if (relationshipType.name().equals("GREATER_THAN")) {
-                HashMap<String, String> propertyMaps = maps.get(relationshipType);
-                int threshold = Integer.parseInt(propertyMaps.get("Threshold"));
-                if (value > threshold) {
-                    endNode = getEndNode(propertyMaps);
-                }
-            } else if (relationshipType.name().equals("BETWEEN")) {
-                HashMap<String, String> propertyMaps = maps.get(relationshipType);
-                int from = Integer.parseInt(propertyMaps.get("From"));
-                int to = Integer.parseInt(propertyMaps.get("To"));
-                if (from < value && value < to) {
-                    endNode = getEndNode(propertyMaps);
-                }
-            } else if (relationshipType.name().equals("UNKNOWN_AGE")) {
-                HashMap<String, String> propertyMaps = maps.get(relationshipType);
-                if (value == 0) {
-                    endNode = getEndNode((propertyMaps));
+        private SubRule(HashMap<RelationshipType, HashMap<String, String>> maps) {
+            this.maps = maps;
+        }
+
+        public Node withValue(int value) {
+            Node endNode = null;
+            Set<RelationshipType> keySet = maps.keySet();
+
+            for (RelationshipType relationshipType : keySet) {
+                if (relationshipType.name().equals("LESS_THAN")) {
+                    HashMap<String, String> propertyMaps = maps.get(relationshipType);
+                    int threshold = Integer.parseInt(propertyMaps.get("Threshold"));
+                    if (value > 0 && value < threshold) {
+                        endNode = getEndNode(propertyMaps);
+                    }
+
+                } else if (relationshipType.name().equals("GREATER_THAN")) {
+                    HashMap<String, String> propertyMaps = maps.get(relationshipType);
+                    int threshold = Integer.parseInt(propertyMaps.get("Threshold"));
+                    if (value > threshold) {
+                        endNode = getEndNode(propertyMaps);
+                    }
+                } else if (relationshipType.name().equals("BETWEEN")) {
+                    HashMap<String, String> propertyMaps = maps.get(relationshipType);
+                    int from = Integer.parseInt(propertyMaps.get("From"));
+                    int to = Integer.parseInt(propertyMaps.get("To"));
+                    if (from < value && value < to) {
+                        endNode = getEndNode(propertyMaps);
+                    }
+                } else if (relationshipType.name().equals("UNKNOWN_AGE")) {
+                    HashMap<String, String> propertyMaps = maps.get(relationshipType);
+                    if (value == 0) {
+                        endNode = getEndNode((propertyMaps));
+                    }
                 }
             }
+            return endNode;
         }
-        return endNode;
     }
 
     private Node getEndNode(HashMap<String, String> propertyMaps) {
@@ -84,8 +97,8 @@ public class RuleRepository {
     /**
      * Could get endNode by the key "EndNode"
      *
-     * @return
      * @param using
+     * @return
      */
     private HashMap<RelationshipType, HashMap<String, String>> getRuleMetadata(String using) throws Exception {
 
@@ -114,10 +127,8 @@ public class RuleRepository {
     private Node getRuleByUsing(String using) throws Exception {
         Node theRule = null;
         List<Rule> listOfRules = getRules();
-        for(Rule rule : listOfRules)
-        {
-            if(rule.getUsing().equals(using))
-            {
+        for (Rule rule : listOfRules) {
+            if (rule.getUsing().equals(using)) {
                 theRule = db.getNodeById(rule.getId());
             }
         }

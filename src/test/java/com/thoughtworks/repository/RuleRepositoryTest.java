@@ -17,7 +17,7 @@ public class RuleRepositoryTest {
         int age = 10;
 
         RuleRepository ruleRepository = new RuleRepository();
-        Node child = ruleRepository.evaluateRule(age, "Age");
+        Node child = ruleRepository.evaluateRuleBasedOn("Age").withValue(age);
         assertThat(child.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Child"));
     }
 
@@ -26,7 +26,7 @@ public class RuleRepositoryTest {
         int age = 66;
 
         RuleRepository ruleRepository = new RuleRepository();
-        Node pensioner = ruleRepository.evaluateRule(age, "Age");
+        Node pensioner = ruleRepository.evaluateRuleBasedOn("Age").withValue(age);
         assertThat(pensioner.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Pensioner"));
     }
 
@@ -35,7 +35,7 @@ public class RuleRepositoryTest {
         int age = 60;
 
         RuleRepository ruleRepository = new RuleRepository();
-        Node adult = ruleRepository.evaluateRule(age, "Age");
+        Node adult = ruleRepository.evaluateRuleBasedOn("Age").withValue(age);
         assertThat(adult.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Adult"));
     }
 
@@ -44,16 +44,16 @@ public class RuleRepositoryTest {
         int age = 0;
 
         RuleRepository ruleRepository = new RuleRepository();
-        Node adult = ruleRepository.evaluateRule(age, "Age");
+        Node adult = ruleRepository.evaluateRuleBasedOn("Age").withValue(age);
         assertThat(adult.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Adult"));
     }
 
     @Test
     public void shouldReturnTenPercentDiscount() {
-        int age = 3;
+        int quantity = 3;
 
         RuleRepository ruleRepository = new RuleRepository();
-        Node adult = ruleRepository.evaluateRule(age, "Quantity");
+        Node adult = ruleRepository.evaluateRuleBasedOn("Quantity").withValue(quantity);
         assertThat(adult.getProperty(DatabaseHelper.NODE_NAME).toString(), is("10"));
     }
 
