@@ -27,4 +27,10 @@ public class RuleController {
         return "rules";
     }
 
+    @RequestMapping(value = "add", method = GET)
+    public String add() {
+
+        return "ruleAdd";
+    }
+
 }

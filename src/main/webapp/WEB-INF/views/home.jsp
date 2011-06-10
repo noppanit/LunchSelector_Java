@@ -24,5 +24,10 @@
         Start a process
     </a>
 </h2>
+<h2>
+    <a href="rules">
+        Set Rule
+    </a>
+</h2>
 </body>
 </html>
