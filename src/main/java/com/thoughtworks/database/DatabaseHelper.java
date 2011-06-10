@@ -14,9 +14,6 @@ import java.io.File;
 public class DatabaseHelper {
     public static final String NODE_NAME = "Name";
     public static final String NODE_QUESTION_TYPE = "QuestionType";
-    public static final String NODE_PRICE_CHILD = "Child";
-    public static final String NODE_PRICE_DEFAULT = "Regular";
-    public static final String NODE_PRICE_PENSIONER = "Pensioner";
 
     public static final String NODE_DOB = "Dob";
 
@@ -87,7 +84,7 @@ public class DatabaseHelper {
             Node priceDependsAgeRule = createNode(NODE_NAME, "Price of dish depends on age");
             priceDependsAgeRule.setProperty("RuleType","EvaluateOn");
             priceDependsAgeRule.setProperty("Using","Age");
-            priceDependsAgeRule.setProperty("Map","Dish");
+//            priceDependsAgeRule.setProperty("Map","Dish");
             rules.createRelationshipTo(priceDependsAgeRule, MyRelationship.RULE);
 
 
@@ -129,11 +126,11 @@ public class DatabaseHelper {
             relateToRoot(rootNode, rules);
 
             Node tunaSalad = createNode(NODE_NAME, "tuna salad");
-            setPricesForDish(tunaSalad, "4", "10", "6");
+            setPricesForDish(tunaSalad, "4", "10", "6", child, adult, pensioner);
             Node pastaSalad = createNode(NODE_NAME, "pasta salad");
-            setPricesForDish(pastaSalad, "5", "11", "7");
+            setPricesForDish(pastaSalad, "5", "11", "7", child, adult, pensioner);
             Node nutSalad = createNode(NODE_NAME, "nut salad");
-            setPricesForDish(nutSalad, "6", "12", "8");
+            setPricesForDish(nutSalad, "6", "12", "8", child, adult, pensioner);
 
             menu.createRelationshipTo(tunaSalad, MyRelationship.DISH);
             menu.createRelationshipTo(pastaSalad, MyRelationship.DISH);
@@ -170,15 +167,15 @@ public class DatabaseHelper {
             Node coldFood = addAnswerToQuestion(hotOrCold, "cold");
 
             Node potsu = createNode(NODE_NAME, "grilled chicken potsu");
-            setPricesForDish(potsu, "4", "10", "6");
+            setPricesForDish(potsu, "4", "10", "6", child, adult, pensioner);
             Node rice = createNode(NODE_NAME, "fried rice");
-            setPricesForDish(rice, "5", "11", "7");
+            setPricesForDish(rice, "5", "11", "7", child, adult, pensioner);
 
             menu.createRelationshipTo(potsu, MyRelationship.DISH);
             menu.createRelationshipTo(rice, MyRelationship.DISH);
 
             Node sandwiches = createNode(NODE_NAME, "sandwiches");
-            setPricesForDish(sandwiches, "5", "11", "7");
+            setPricesForDish(sandwiches, "5", "11", "7", child, adult, pensioner);
 
             veganYes.createRelationshipTo(potsu, MyRelationship.EXCLUDES);
             veganYes.createRelationshipTo(rice, MyRelationship.EXCLUDES);
@@ -226,10 +223,19 @@ public class DatabaseHelper {
 
     }
 
-    private void setPricesForDish(Node dish, String child, String regular, String pensioner) {
-        dish.setProperty(NODE_PRICE_CHILD, child);
-        dish.setProperty(NODE_PRICE_DEFAULT, regular);
-        dish.setProperty(NODE_PRICE_PENSIONER, pensioner);
+    private void setPricesForDish(Node dish, String child, String adult, String pensioner, Node childNode, Node adultNode, Node pensionerNode) {
+        Node childPrice = createNode(NODE_NAME, child);
+        dish.createRelationshipTo(childPrice, MyRelationship.PRICE);
+        childPrice.createRelationshipTo(childNode, MyRelationship.RELATED_RULE);
+
+        Node adultPrice = createNode(NODE_NAME, adult);
+        dish.createRelationshipTo(adultPrice, MyRelationship.PRICE);
+        adultPrice.createRelationshipTo(adultNode,MyRelationship.RELATED_RULE);
+
+        Node pensionerPrice = createNode(NODE_NAME,pensioner);
+        dish.createRelationshipTo(pensionerPrice, MyRelationship.PRICE);
+        pensionerPrice.createRelationshipTo(pensionerNode,MyRelationship.RELATED_RULE);
+
     }
 
     public Node createCustomer(String customerName) {
