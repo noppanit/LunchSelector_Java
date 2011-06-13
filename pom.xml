@@ -23,7 +23,7 @@
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j</artifactId>
-            <version>1.4.M02</version>
+            <version>1.4.M04</version>
             <exclusions>
                 <exclusion>
                     <artifactId>geronimo-jta_1.1_spec</artifactId>
