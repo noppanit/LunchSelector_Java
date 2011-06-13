@@ -82,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DatabaseHelper.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DatabaseHelper.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="217" column="44" selection-start="9434" selection-end="9434" vertical-scroll-proportion="3.2681565">
+            <state line="225" column="45" selection-start="9569" selection-end="9569" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -94,7 +94,16 @@
       <file leaf-file-name="Menu.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="47" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0">
+            <state line="8" column="60" selection-start="157" selection-end="157" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Rule.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Rule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="33" selection-start="481" selection-end="481" vertical-scroll-proportion="0.42313117">
               <folding />
             </state>
           </provider>
@@ -145,7 +154,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/constant/Constant.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/customerMenu.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/rules.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Rule.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/RuleRepositoryTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/repository/RuleRepository.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/thoughtworks/repository/CustomerTest.java" />
@@ -153,10 +161,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/CustomerController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/controller/RuleController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Menu.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/relationship/MyRelationship.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Menu.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Rule.java" />
       </list>
     </option>
   </component>
@@ -823,11 +832,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Rule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="419" selection-end="419" vertical-scroll-proportion="0.37860084" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/relationship/MyRelationship.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="32" selection-start="312" selection-end="312" vertical-scroll-proportion="0.0" />
@@ -868,16 +872,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Menu.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="47" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0">
+        <state line="225" column="45" selection-start="9569" selection-end="9569" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/database/DatabaseHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="217" column="44" selection-start="9434" selection-end="9434" vertical-scroll-proportion="3.2681565">
+        <state line="8" column="60" selection-start="157" selection-end="157" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/thoughtworks/model/Rule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="33" selection-start="481" selection-end="481" vertical-scroll-proportion="0.42313117">
           <folding />
         </state>
       </provider>

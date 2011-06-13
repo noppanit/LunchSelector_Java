@@ -224,17 +224,18 @@ public class DatabaseHelper {
     }
 
     private void setPricesForDish(Node dish, String child, String adult, String pensioner, Node childNode, Node adultNode, Node pensionerNode) {
-        Node childPrice = createNode(NODE_NAME, child);
-        dish.createRelationshipTo(childPrice, MyRelationship.PRICE);
-        childPrice.createRelationshipTo(childNode, MyRelationship.RELATED_RULE);
-
-        Node adultPrice = createNode(NODE_NAME, adult);
-        dish.createRelationshipTo(adultPrice, MyRelationship.PRICE);
-        adultPrice.createRelationshipTo(adultNode,MyRelationship.RELATED_RULE);
-
-        Node pensionerPrice = createNode(NODE_NAME,pensioner);
-        dish.createRelationshipTo(pensionerPrice, MyRelationship.PRICE);
-        pensionerPrice.createRelationshipTo(pensionerNode,MyRelationship.RELATED_RULE);
+        dish.setProperty("Price", adult);
+//        Node childPrice = createNode(NODE_NAME, child);
+//        dish.createRelationshipTo(childPrice, MyRelationship.PRICE);
+//        childPrice.createRelationshipTo(childNode, MyRelationship.RELATED_RULE);
+//
+//        Node adultPrice = createNode(NODE_NAME, adult);
+//        dish.createRelationshipTo(adultPrice, MyRelationship.PRICE);
+//        adultPrice.createRelationshipTo(adultNode,MyRelationship.RELATED_RULE);
+//
+//        Node pensionerPrice = createNode(NODE_NAME,pensioner);
+//        dish.createRelationshipTo(pensionerPrice, MyRelationship.PRICE);
+//        pensionerPrice.createRelationshipTo(pensionerNode,MyRelationship.RELATED_RULE);
 
     }
 
