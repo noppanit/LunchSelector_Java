@@ -85,6 +85,7 @@ public class DatabaseHelper {
             priceDependsAgeRule.setProperty("RuleType","EvaluateOn");
             priceDependsAgeRule.setProperty("Using","Dob");
             priceDependsAgeRule.setProperty("AffectTo","Price");
+            priceDependsAgeRule.setProperty("UsingDataType","Calendar");
             rules.createRelationshipTo(priceDependsAgeRule, MyRelationship.RULE);
 
 

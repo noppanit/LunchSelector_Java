@@ -5,7 +5,7 @@ public class Rule extends NodeObject{
     private String using;
     private String ruleType;
     private String affectTo;
-
+    private String usingDataType;
 
     public String getUsing() {
         return using;
@@ -29,5 +29,13 @@ public class Rule extends NodeObject{
 
     public void setAffectTo(String affectTo) {
         this.affectTo = affectTo;
+    }
+
+    public String getUsingDataType() {
+        return usingDataType;
+    }
+
+    public void setUsingDataType(String usingDataType) {
+        this.usingDataType = usingDataType;
     }
 }
