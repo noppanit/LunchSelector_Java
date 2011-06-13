@@ -145,24 +145,30 @@ public class CustomerRepository {
         return calculateAge(customerDOB);
     }
 
-    public HashMap<String, String> getEndNodeByRule(Node customer) throws Exception {
+    public HashMap<String, String> executeRules(Node customer) throws Exception {
         RuleRepository ruleRepository = new RuleRepository();
+
         int value = 0;
         HashMap<String,String> mapOfRuleAndEndNode = new HashMap<String,String>();
         List<Rule> listOfRules = getCustomerRules();
+
         for (Rule rule : listOfRules) {
             String ruleUsesThis = rule.getUsing();
-            value = getValueBasedOn(ruleUsesThis, customer);
+            value = getValueBasedOn(rule.getUsingDataType(), customer);
+
             Node endNode = ruleRepository.evaluateRuleBasedOn(ruleUsesThis).withValue(value);
             String endNodeString = endNode.getProperty(DatabaseHelper.NODE_NAME).toString();
             mapOfRuleAndEndNode.put(ruleUsesThis, endNodeString);
         }
+
         return mapOfRuleAndEndNode;
     }
 
-    private int getValueBasedOn(String using, Node customerNode) {
+    private int getValueBasedOn(String usingDataType, Node customerNode) {
+
+        // Something wired going on here, what if it's a calendar but it's not Age?
         int value = 0;
-        if (using == "Age")
+        if (usingDataType == "Calendar")
             value = getAge(customerNode);
 
         return value;

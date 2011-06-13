@@ -4,7 +4,6 @@ import com.thoughtworks.database.DatabaseHelper;
 import com.thoughtworks.model.*;
 import com.thoughtworks.repository.CustomerRepository;
 import com.thoughtworks.repository.QuestionRepository;
-import com.thoughtworks.repository.RuleRepository;
 import org.neo4j.graphdb.Node;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -105,8 +104,8 @@ public class CustomerController {
         int customerAge = customerRepository.getAge(customer);
         String ageCategory = "";
         if (customerRepository.hasRules()) {
-            HashMap<String,String> mapOfRuleAndEndNode = customerRepository.getEndNodeByRule(customer);
-            ageCategory = mapOfRuleAndEndNode.get("Age");
+            HashMap<String,String> mapOfRuleAndEndNode = customerRepository.executeRules(customer);
+            ageCategory = mapOfRuleAndEndNode.get("Dob");
         }
 
         List<Menu> customerPersonalisedMenu = customerRepository.getPersonalisedMenu(customer);
