@@ -83,7 +83,7 @@ public class DatabaseHelper {
 
             Node priceDependsAgeRule = createNode(NODE_NAME, "Price of dish depends on age");
             priceDependsAgeRule.setProperty("RuleType","EvaluateOn");
-            priceDependsAgeRule.setProperty("Using","Age");
+            priceDependsAgeRule.setProperty("Using","Dob");
             priceDependsAgeRule.setProperty("AffectTo","Price");
             rules.createRelationshipTo(priceDependsAgeRule, MyRelationship.RULE);
 
