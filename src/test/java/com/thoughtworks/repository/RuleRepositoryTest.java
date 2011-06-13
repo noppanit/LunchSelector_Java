@@ -12,12 +12,14 @@ import static org.junit.Assert.assertThat;
 
 public class RuleRepositoryTest {
 
+    private static final String USING_DOB = "Dob";
+
     @Test
     public void shouldReturnAgeLessThanCategoryBasedOnRule() {
         int age = 10;
 
         RuleRepository ruleRepository = new RuleRepository();
-        Node child = ruleRepository.evaluateRuleBasedOn("Age").withValue(age);
+        Node child = ruleRepository.evaluateRuleBasedOn(USING_DOB).withValue(age);
         assertThat(child.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Child"));
     }
 
@@ -26,7 +28,7 @@ public class RuleRepositoryTest {
         int age = 66;
 
         RuleRepository ruleRepository = new RuleRepository();
-        Node pensioner = ruleRepository.evaluateRuleBasedOn("Age").withValue(age);
+        Node pensioner = ruleRepository.evaluateRuleBasedOn(USING_DOB).withValue(age);
         assertThat(pensioner.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Pensioner"));
     }
 
@@ -35,7 +37,7 @@ public class RuleRepositoryTest {
         int age = 60;
 
         RuleRepository ruleRepository = new RuleRepository();
-        Node adult = ruleRepository.evaluateRuleBasedOn("Age").withValue(age);
+        Node adult = ruleRepository.evaluateRuleBasedOn(USING_DOB).withValue(age);
         assertThat(adult.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Adult"));
     }
 
@@ -44,7 +46,7 @@ public class RuleRepositoryTest {
         int age = 0;
 
         RuleRepository ruleRepository = new RuleRepository();
-        Node adult = ruleRepository.evaluateRuleBasedOn("Age").withValue(age);
+        Node adult = ruleRepository.evaluateRuleBasedOn(USING_DOB).withValue(age);
         assertThat(adult.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Adult"));
     }
 

@@ -89,7 +89,7 @@ public class CustomerTest extends BaseTest {
             Node bob = customerRepository.getCustomer("Bob");
 
             RuleRepository ruleRepository = new RuleRepository();
-            Node child = ruleRepository.evaluateRuleBasedOn("Age").withValue(customerRepository.getAge(bob));
+            Node child = ruleRepository.evaluateRuleBasedOn("Dob").withValue(customerRepository.getAge(bob));
 
             assertThat(child.getProperty(DatabaseHelper.NODE_NAME).toString(), is("Child"));
         } finally {
