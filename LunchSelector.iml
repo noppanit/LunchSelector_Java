@@ -35,7 +35,8 @@
     <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.8.1" level="project" />
     <orderEntry type="library" name="Maven: org.neo4j:neo4j-kernel:tests:1.4.M04" level="project" />
     <orderEntry type="library" name="Maven: org.neo4j:neo4j-jmx:1.4.M04" level="project" />
-    <orderEntry type="library" name="Maven: org.neo4j.graphmatching:neo4j-graphmatching:1.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.neo4j:neo4j-shell:1.4-SNAPSHOT" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.apache.servicemix.bundles:org.apache.servicemix.bundles.jline:0.9.94_1" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:3.3.0.SP1" level="project" />
     <orderEntry type="library" name="Maven: antlr:antlr:2.7.6" level="project" />
     <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.1" level="project" />
