@@ -4,3 +4,5 @@
 3. mvn test
 4. mvn jetty:run
 5. go to http://localhost:8080
+
+Use checkpoint branch instead of master, this repository will be deleted after spring-data-graph project has been successfully integrated.
